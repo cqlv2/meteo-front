@@ -1,0 +1,64 @@
+<div class="row " *ngIf="connectedMember">
+    <div class="col-xs-12 col-xs-6 col-lg-4">
+        <fieldset>
+            <legend>informations</legend>
+            <!-- champ prenom -->
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">first name</div>
+                </div>
+                <input id="nom" [(ngModel)]="connectedMember.firstName" class="form-control" type="text"
+                    placeholder="please enter firstName">
+            </div>
+
+            <!-- champ nom -->
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Last name</div>
+                </div>
+                <input id="nom" [(ngModel)]="connectedMember.lastName" class="form-control" type="text"
+                    placeholder="please enter your last name">
+            </div>
+
+            <!-- champ username -->
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">User name</div>
+                </div>
+                <input id="nom" [(ngModel)]="connectedMember.userName" class="form-control" type="text"
+                    placeholder="please enter your user name">
+            </div>
+
+            <!-- champ email -->
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Email</div>
+                </div>
+                <input id="nom" [(ngModel)]="connectedMember.email" class="form-control" type="text"
+                    placeholder="please enter your Email">
+            </div>
+            <button type="button" class="btn btn-secondary mt-3">Save</button>
+        </fieldset>
+    </div>
+    <div class="col-xs-12 col-xs-6 col-lg-4">
+        <fieldset>
+            <legend>profil</legend>
+            <ul>
+                <li>register anniversary : {{connectedMember.dateAdd|date}}</li>
+                <li>level : {{connectedMember.role.label}}</li>
+                <li>nbrtopic created : {{connectedMember.topics.length}}</li>
+                <li>last topic created : error</li>
+                <li>nbrSubject created : error</li>
+                <li>last subject created : error</li>
+            </ul>
+        </fieldset>
+    </div>
+
+    <div class="col-xs-12 col-xs-6 col-lg-4">
+        <fieldset>
+            <legend>favorite</legend>
+            listfav
+        </fieldset>
+    </div>
+
+</div>

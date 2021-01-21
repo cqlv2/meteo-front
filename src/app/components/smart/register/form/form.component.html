@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-4">
+        <fieldset>
+            <legend>Inscription</legend>
+            <!-- champ lastName -->
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Last name</div>
+                </div>
+                <input id="nom" [(ngModel)]="MemberReq.lastName" class="form-control" type="text"
+                    placeholder="please enter your last name">
+            </div>
+
+            <!-- champ firstName -->
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">First name</div>
+                </div>
+                <input id="nom" [(ngModel)]="MemberReq.firstName" class="form-control" type="text"
+                    placeholder="please enter your firstName">
+            </div>
+
+            <!-- champ userName -->
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">User name</div>
+                </div>
+                <input id="nom" [(ngModel)]="MemberReq.userName" class="form-control" type="text"
+                    placeholder="please enter your user name">
+            </div>
+
+            <!-- champ email -->
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Email</div>
+                </div>
+                <input id="nom" [(ngModel)]="MemberReq.email" class="form-control" type="text"
+                    placeholder="please enter your Email">
+            </div>
+
+            <!-- champ password -->
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">password</div>
+                </div>
+                <input id="nom" [(ngModel)]="MemberReq.password" class="form-control" type="text"
+                    placeholder="please enter your password">
+            </div>
+            <!-- champ confirm -->
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">confirm</div>
+                </div>
+                <input id="nom" [(ngModel)]="confirm" class="form-control" type="text"
+                    placeholder="please confirm your password">
+            </div>
+            <!-- boutonvalid -->
+            <button (click)="register()" type="button" class="btn btn-secondary mt-3">Register</button>
+
+        </fieldset>
+    </div>
+</div>

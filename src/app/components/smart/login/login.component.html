@@ -1,0 +1,39 @@
+<div *ngIf='display' class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-8 col-lg-6 text-center">
+            <fieldset class="border p-3 mt-3 text-left">
+                <legend>Login</legend>
+
+                <!-- champ username -->
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Email</div>
+                    </div>
+                    <input id="nom" [(ngModel)]="connect.username" class="form-control" type="text"
+                        placeholder="please enter your Email">
+                </div>
+
+                <!-- champ password -->
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Password</div>
+                    </div>
+                    <input id="nom" [(ngModel)]="connect.password" class="form-control" type="text"
+                        placeholder="please enter your password">
+                </div>
+                <!-- checkbox -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="rememberMe" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">
+                        remember me
+                    </label>
+                </div>
+                <!-- si erreur -->
+                <div>
+                    <p class="errLog" *ngFor="let err of errMessages">{{err}}</p>
+                </div>
+            </fieldset>
+            <button (click)="connection()" type="button" class="btn btn-secondary mt-3">Login</button>
+        </div>
+    </div>
+</div>

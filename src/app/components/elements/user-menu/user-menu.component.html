@@ -1,0 +1,7 @@
+<div *ngIf="member" ngbDropdown class="d-inline-block">
+    <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>{{member.firstName}} {{member.lastName}}</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <a routerLink="/profil"><button ngbDropdownItem>Profil</button></a>
+      <a routerLink="/favorite"><button ngbDropdownItem>Favorite</button></a>
+      <a routerLink="/logout"><button ngbDropdownItem>Logout</button></a>
+    </div>

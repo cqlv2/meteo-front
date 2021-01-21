@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <img class="lm-3" width="60px" src="{{logoUrl}}" alt="logo">
+    <a class="navbar-brand" href="#">{{titleApp}}</a>
+    <button class="navbar-toggler d-lg-none" type="button" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault" [ngbCollapse]="isCollapsed">
+        <ul class="navbar-nav ml-auto mr-3">
+            
+            <li class="nav-item"><a routerLink="/home" routerLinkActive="nav-item active" class="nav-link">Home</a></li>
+
+            <li class="nav-item"><a routerLink="/weather" routerLinkActive="nav-item active" class="nav-link">weather</a></li>
+            <li class="nav-item"><a routerLink="/favorites" routerLinkActive="nav-item active" class="nav-link">favorites</a></li>
+            <li class="nav-item"><a routerLink="/forum" routerLinkActive="nav-item active" class="nav-link">forum</a></li>
+
+
+            <!-- si non connecté -->
+
+            <li *ngIf="!member" class="nav-item"><a routerLink="/login" routerLinkActive="nav-item active" class="nav-link">login</a></li>
+            <li *ngIf="!member"class="nav-item"><a routerLink="/register" routerLinkActive="nav-item active" class="nav-link">register</a></li>
+            <!--  -->
+        </ul>
+        <!-- si connecté -->
+        <app-user-menu *ngIf="member!=null"></app-user-menu>
+        <!--  -->
+    </div>
+</nav>
