@@ -5,8 +5,8 @@ export class MemberQuery {
     firstName: string;
     userName: string;
     email: string;
-    password?: string;
-    roleId: number;
+    password: string;
+    roleId?: number;
     favoritesId?: number[];
     topicId?: number[];
 }
