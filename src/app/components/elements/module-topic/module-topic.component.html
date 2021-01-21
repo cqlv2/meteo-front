@@ -1,0 +1,8 @@
+<div *ngIf="topic && topic.subjects.length > 0" >
+    <ul *ngFor="let subject of topic.subjects">
+        <li>{{subject.label}}</li>
+    </ul>
+</div>
+<div *ngIf ="topic && topic.subjects.length == 0">
+    <p>Pas de bras, pas de sujet !</p>
+</div>

@@ -1,0 +1,14 @@
+
+<div class="row" *ngIf="topicList">
+    <div class="col">
+        <ngb-accordion class= "mt-3" #acc="ngbAccordion">
+            <ngb-panel *ngFor="let topic of topicList"  title={{topic.label}}>
+              <ng-template ngbPanelContent>
+                <app-module-topic topicId={{topic.id}}></app-module-topic>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+    </div>
+</div>
+
+
