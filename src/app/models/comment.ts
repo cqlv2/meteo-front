@@ -1,6 +1,5 @@
-import { Comment } from 'src/app/models/comment';
 
-export class Answer{
+export class Comment{
 
     contain: string;
     liked: number;
@@ -9,4 +8,5 @@ export class Answer{
     constructor(params:any) {
         Object.assign(this, params);
     }
+
 }

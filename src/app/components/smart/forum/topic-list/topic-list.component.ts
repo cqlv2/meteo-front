@@ -10,6 +10,7 @@ import { TopicService } from 'src/app/services/topic.service';
 export class TopicListComponent implements OnInit {
 
   topicList: Topic[];
+  
   constructor(private topicSrv: TopicService) {}
 
   ngOnInit(): void {

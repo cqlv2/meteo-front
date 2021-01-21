@@ -13,6 +13,7 @@ import { FormComponent } from '../components/smart/register/form/form.component'
 import { StateComponent } from '../components/smart/register/state/state.component';
 import { ServerComponent } from '../components/error/server/server.component';
 import { TopicListComponent } from '../components/smart/forum/topic-list/topic-list.component';
+import { SubjectComponent } from '../components/smart/forum/subject/subject.component';
 
 
 
@@ -38,7 +39,7 @@ export const ROUTES: Routes = [
         children: [
             {path: '', pathMatch: 'full', redirectTo: 'topics'},
             {path: 'topics', component: TopicListComponent},
-            //{path: 'subjects', component: },
+            {path: 'subjects/:id', component: SubjectComponent}
         ]
     },
     // login

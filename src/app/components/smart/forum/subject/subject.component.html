@@ -1,0 +1,15 @@
+<p>subject works!</p>
+<div class="row" *ngIf="subject">
+    <div class="col">
+        {{subject.label}}
+
+        <div *ngFor= "let answer of subject.answers">
+            {{answer.contain}}
+            <div *ngFor = "let comment of answer.comments">
+                {{comment.contain}}
+            </div>
+        </div> 
+    </div> 
+</div>
+
+

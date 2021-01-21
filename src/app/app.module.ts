@@ -34,6 +34,7 @@ import { StateComponent } from './components/smart/register/state/state.componen
 import { ServerComponent } from './components/error/server/server.component';
 import { TopicListComponent } from './components/smart/forum/topic-list/topic-list.component';
 import { ModuleTopicComponent } from './components/elements/module-topic/module-topic.component';
+import { SubjectComponent } from './components/smart/forum/subject/subject.component';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -59,6 +60,7 @@ registerLocaleData(localeFr, 'fr');
     ServerComponent,
     TopicListComponent,
     ModuleTopicComponent,
+    SubjectComponent,
   ],
   imports: [
     CommonModule,

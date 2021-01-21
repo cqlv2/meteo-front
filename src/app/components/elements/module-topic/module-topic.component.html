@@ -1,6 +1,6 @@
 <div *ngIf="topic && topic.subjects.length > 0" >
     <ul *ngFor="let subject of topic.subjects">
-        <li>{{subject.label}}</li>
+        <a routerLink = "../subjects/{{subject.id}}"><li>{{subject.label}}</li></a>       
     </ul>
 </div>
 <div *ngIf ="topic && topic.subjects.length == 0">
