@@ -12,6 +12,7 @@ import { CguComponent } from '../components/smart/register/cgu/cgu.component';
 import { FormComponent } from '../components/smart/register/form/form.component';
 import { StateComponent } from '../components/smart/register/state/state.component';
 import { ServerComponent } from '../components/error/server/server.component';
+import { TopicListComponent } from '../components/smart/forum/topic-list/topic-list.component';
 
 
 
@@ -34,6 +35,11 @@ export const ROUTES: Routes = [
     // forum
     {
         path: 'forum', component: ForumComponent,
+        children: [
+            {path: '', pathMatch: 'full', redirectTo: 'topics'},
+            {path: 'topics', component: TopicListComponent},
+            //{path: 'subjects', component: },
+        ]
     },
     // login
     {

@@ -15,7 +15,7 @@ export class ForumComponent implements OnInit {
     this.loginSrv.isAuth().subscribe(
       data => this.loginSrv.sendToMemberSub(new Member(data)),
       err=>this.loginSrv.sendToMemberSub(null)
-    )
+    );
   }
 
 }
