@@ -11,15 +11,13 @@ import { SubjectService } from 'src/app/services/subject.service';
 })
 export class SubjectComponent implements OnInit {
 
-  subjectId: string;
   subject: Subject;
 
   constructor(private activatedRoute: ActivatedRoute, private subjectSrv: SubjectService) { }
 
   ngOnInit(): void {
 
-    this.subjectId = this.activatedRoute.snapshot.paramMap.get("id");
-    this.subjectSrv.getSubjectById(this.subjectId).subscribe(
+    this.subjectSrv.getSubjectById(this.activatedRoute.snapshot.paramMap.get("id")).subscribe(
       data => this.subject = data,
       err => console.log(err) 
     );

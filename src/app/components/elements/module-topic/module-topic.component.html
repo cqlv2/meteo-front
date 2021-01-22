@@ -1,8 +1,0 @@
-<div *ngIf="topic && topic.subjects.length > 0" >
-    <ul *ngFor="let subject of topic.subjects">
-        <a routerLink = "../subjects/{{subject.id}}"><li>{{subject.label}}</li></a>       
-    </ul>
-</div>
-<div *ngIf ="topic && topic.subjects.length == 0">
-    <p>Pas de bras, pas de sujet !</p>
-</div>

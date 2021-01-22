@@ -1,0 +1,33 @@
+<div class="shadow p-3 mb-5 bg-white rounded container">
+    <div class="row">
+        <div class="col-2 border-right">
+            <p>INFO AUTEUR</p>
+            <p>{{answer.dateAdd|date:'medium'}}</p>
+            <p>{{answer.liked}} like</p>
+        </div>
+        <div class="col-10">
+            <div class="row">
+                <div class="col">
+                    <p [innerHTML]=answer.contain|nl2br></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <ngb-accordion #acc="ngbAccordion">
+                        <ngb-panel title="{{answer.comments.length}} comments">
+                            <ng-template ngbPanelContent>
+                                <!-- liste des coms -->
+                                <p *ngIf="answer.comments.length==0 && connectedMember">be the first to comment</p>
+                                <p *ngIf="!connectedMember">logIn for comment</p>
+                                <!-- boucle sur le module commentaire -->
+                                <app-module-comment *ngFor="let comment of answer.comments" [comment]=comment></app-module-comment>
+                                
+                            </ng-template>
+                        </ngb-panel>
+
+                    </ngb-accordion>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

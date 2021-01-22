@@ -1,0 +1,33 @@
+<div class="row mt-1 shadow p-1 bg-white rounded">
+    <div class="col-6">
+        <div class="row">
+            <div class="col">
+                <h5>{{subject.label}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h5>AUTEUR</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <p>last message :ecris en dur dans subjectComponent.html !</p>
+    </div>
+    <div class="col-2">
+        <div class="row">
+            <div class="col">
+                <p>
+                    {{subject.dateAdd|date}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>
+                    answers : {{subject.answers.length}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,14 +1,18 @@
-<p>subject works!</p>
 <div class="row" *ngIf="subject">
     <div class="col">
-        {{subject.label}}
+        <h3>{{subject.label}}</h3>
+        <p>AUTOR  - {{subject.dateAdd|date}}</p>
+        <app-module-answer *ngFor= "let answer of subject.answers" [answer]=answer></app-module-answer>
 
-        <div *ngFor= "let answer of subject.answers">
+
+
+
+        <!-- <div >
             {{answer.contain}}
             <div *ngFor = "let comment of answer.comments">
                 {{comment.contain}}
             </div>
-        </div> 
+        </div>  -->
     </div> 
 </div>
 

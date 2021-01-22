@@ -33,8 +33,11 @@ import { FormComponent } from './components/smart/register/form/form.component';
 import { StateComponent } from './components/smart/register/state/state.component';
 import { ServerComponent } from './components/error/server/server.component';
 import { TopicListComponent } from './components/smart/forum/topic-list/topic-list.component';
-import { ModuleTopicComponent } from './components/elements/module-topic/module-topic.component';
 import { SubjectComponent } from './components/smart/forum/subject/subject.component';
+import { ModuleSubjectComponent } from './components/elements/module-subject/module-subject.component';
+import { ModuleAnswerComponent } from './components/elements/module-answer/module-answer.component';
+import { ModuleCommentComponent } from './components/elements/module-comment/module-comment.component';
+import {Nl2BrPipeModule} from 'nl2br-pipe';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -59,8 +62,10 @@ registerLocaleData(localeFr, 'fr');
     StateComponent,
     ServerComponent,
     TopicListComponent,
-    ModuleTopicComponent,
     SubjectComponent,
+    ModuleSubjectComponent,
+    ModuleAnswerComponent,
+    ModuleCommentComponent
   ],
   imports: [
     CommonModule,
@@ -69,6 +74,7 @@ registerLocaleData(localeFr, 'fr');
     HttpClientModule,
     FormsModule, 
     RouterModule.forRoot(ROUTES),
+    [Nl2BrPipeModule],
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "fr-FR" },
