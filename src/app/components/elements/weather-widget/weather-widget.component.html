@@ -1,0 +1,33 @@
+
+    <div class="row shadow p-1 mb-5 bg-white rounded">
+
+        <div class="col-12">
+
+            <table style="font-size: 1vw" class="table table-bordered">
+                <tr>
+                    <th>logo</th>
+                    <th>temp</th>
+                    <th>tempMax</th>
+                    <th>tempMin</th>
+                </tr>
+                <tr>
+                    <td><img width="50px" src="https://images-ext-2.discordapp.net/external/AP46fMmh64eyGkKrmBlwLIBNBU93fho0pZHq_LWx3p4/https/img1.freepng.fr/20171220/lhe/real-sun-png-5a3ad40d3e9ac2.09858493151380481325643102.jpg"></td>
+                    <td>{{weather.temp}} °C</td>
+                    <td>{{weather.tempMax}} °C</td>
+                    <td>{{weather.tempMin}} °C</td>
+                </tr>
+                <tr>
+                    <th>windDirection</th>
+                    <th>windSpeed</th>
+                    <th>humidity</th>
+                    <th>pressure</th>
+                </tr>
+                <tr>
+                    <td>{{weather.windDirection}}</td>
+                    <td>{{weather.windSpeed}} m/s</td>
+                    <td>{{weather.humidity}} %</td>
+                    <td>{{weather.pressure}} Pa</td>
+                </tr>
+            </table>
+        </div>
+    </div>

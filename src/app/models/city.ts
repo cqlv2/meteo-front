@@ -11,4 +11,6 @@ export class City{
     department : string;
     weathers : Weather[];
     polluants :  Polluant[]
+    longitude: number;
+    latitude: number;
 }

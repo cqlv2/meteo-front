@@ -38,6 +38,11 @@ import { ModuleSubjectComponent } from './components/elements/module-subject/mod
 import { ModuleAnswerComponent } from './components/elements/module-answer/module-answer.component';
 import { ModuleCommentComponent } from './components/elements/module-comment/module-comment.component';
 import {Nl2BrPipeModule} from 'nl2br-pipe';
+import { CitySearchComponent } from './components/elements/city-search/city-search.component';
+import { CityInfosComponent } from './components/elements/city-infos/city-infos.component';
+import { WeatherWidgetComponent } from './components/elements/weather-widget/weather-widget.component';
+import { InfosCityWidgetComponent } from './components/elements/infos-city-widget/infos-city-widget.component';
+import { InfosPollutionWidgetComponent } from './components/elements/infos-pollution-widget/infos-pollution-widget.component';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -65,7 +70,12 @@ registerLocaleData(localeFr, 'fr');
     SubjectComponent,
     ModuleSubjectComponent,
     ModuleAnswerComponent,
-    ModuleCommentComponent
+    ModuleCommentComponent,
+    CitySearchComponent,
+    CityInfosComponent,
+    WeatherWidgetComponent,
+    InfosCityWidgetComponent,
+    InfosPollutionWidgetComponent,
   ],
   imports: [
     CommonModule,

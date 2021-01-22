@@ -8,4 +8,8 @@ export class Weather{
     windSpeed: number;
     humidity: number;
     pressure: number;
+
+    constructor(params:any) {
+        Object.assign(this, params);
+    }
 }

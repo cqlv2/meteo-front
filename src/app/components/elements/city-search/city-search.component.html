@@ -1,0 +1,15 @@
+<div class="input-group mb-2">
+    <div class="input-group-prepend">
+        <div class="input-group-text">Search</div>
+    </div>
+    <input [(ngModel)] ="citySearched" list="cityList" id="cityName" class="form-control" type="text" placeholder="please enter your city name">
+
+</div>
+
+
+<datalist id="cityList">
+	<option *ngFor="let city of cities">{{city.cityName}}</option>
+</datalist>
+
+
+<button (click)="checkCity()" type="button" class="btn btn-secondary mt-3">Validate</button>

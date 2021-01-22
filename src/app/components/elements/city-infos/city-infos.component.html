@@ -1,0 +1,42 @@
+<!-- Info pour {{city.cityName}}
+<p>
+    Population : {{city.population}}
+</p> -->
+
+<div *ngIf="!city">
+    Select city !!!
+</div>
+<div *ngIf="city">
+    <ngb-accordion #acc="ngbAccordion" class="mt-3"> 
+        <ngb-panel title="City informations">
+            <ng-template ngbPanelContent>
+                <app-infos-city-widget [city]="city"></app-infos-city-widget>
+            </ng-template>
+        </ngb-panel>
+    
+        <ngb-panel title="Weather informations">
+            <ng-template ngbPanelContent>
+                <app-weather-widget [weather]="city.weathers[city.weathers.length -1]"></app-weather-widget>
+            </ng-template>
+        </ngb-panel>
+    
+        <ngb-panel title="Weather archives">
+            <ng-template ngbPanelContent>
+                
+            </ng-template>
+        </ngb-panel>
+    
+        <ngb-panel title="Air quality informations">
+            <ng-template ngbPanelContent>
+                
+            </ng-template>
+        </ngb-panel>
+    
+        <ngb-panel title="Air quality archives">
+            <ng-template ngbPanelContent>
+                
+            </ng-template>
+        </ngb-panel>
+      
+    </ngb-accordion>
+</div>
