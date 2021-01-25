@@ -45,6 +45,7 @@ import { InfosPollutionWidgetComponent } from './components/elements/infos-pollu
 import { InformationComponent } from './components/smart/information/information.component';
 import { MapWidgetComponent } from './components/elements/map-widget/map-widget.component';
 import { PolluantWidgetComponent } from './components/elements/polluant-widget/polluant-widget.component';
+import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -89,6 +90,7 @@ registerLocaleData(localeFr, 'fr');
     FormsModule, 
     RouterModule.forRoot(ROUTES),
     [Nl2BrPipeModule],
+    LeafletMarkerClusterModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "fr-FR" },

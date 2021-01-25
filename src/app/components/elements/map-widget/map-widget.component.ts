@@ -25,11 +25,33 @@ export class MapWidgetComponent implements OnInit {
     const myIcon = L.icon({
       iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
     });
-    this.cities.forEach(city => {
-      L.marker([city.latitude, city.longitude], { icon: myIcon }).bindPopup("plop").addTo(this.myfrugalmap).openPopup();
-    });
+
+
+
+var markersCluster = new L.MarkerClusterGroup();
+
+this.cities.forEach(city => {
+  var latLng = new L.LatLng(city.latitude, city.longitude);
+    var marker = new L.Marker(latLng, {title: city.cityName});
+    markersCluster.addLayer(marker);
+});
+
+
+
+markersCluster.addTo(this.myfrugalmap);
+
+
+
+
+
+
+    // this.cities.forEach(city => {
+    //   L.marker([city.latitude, city.longitude], { icon: myIcon }).bindPopup("plop").addTo(this.myfrugalmap).openPopup();
+    // });
+
+
   
-  console.log(this.myfrugalmap);
+
   
   
   }
