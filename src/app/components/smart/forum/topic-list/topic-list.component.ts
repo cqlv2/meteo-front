@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Member } from 'src/app/models/member';
+import { Subject } from 'src/app/models/subject';
 import { Topic } from 'src/app/models/topic';
 import { LoginService } from 'src/app/services/login.service';
+import { SubjectService } from 'src/app/services/subject.service';
 import { TopicService } from 'src/app/services/topic.service';
 
 @Component({
@@ -15,8 +17,9 @@ export class TopicListComponent implements OnInit {
   connectedMember : Member;
   displayForm =false;
   topicName: string;
+  subjectName: string;
   
-  constructor(private topicSrv: TopicService, private loginSrv: LoginService) {}
+  constructor(private subjectSrv: SubjectService, private topicSrv: TopicService, private loginSrv: LoginService) {}
   ngOnInit(): void {
     this.loginSrv.isAuth().subscribe(
       data => {
@@ -49,8 +52,17 @@ export class TopicListComponent implements OnInit {
   }
 
 
-  createSubject(){
-    
+  createSubject(topicId:number){
+    var topic : Topic = null;
+    var subject = new Subject({"label": this.subjectName, "topicId": topicId, "memberId" : this.connectedMember.id})
+    this.subjectSrv.createSubject(subject).subscribe(
+      data => {
+        this.topicList.forEach(t => {
+          if(t.id === topicId) topic = t;
+        });
+        topic.subjects.push(data);
+      }
+    )
   }
 
 }

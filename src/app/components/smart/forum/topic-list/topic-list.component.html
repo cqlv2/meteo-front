@@ -23,7 +23,7 @@
           <a *ngFor="let subject of topic.subjects" routerLink="../subjects/{{subject.id}}">
             <app-module-subject [subject]="subject" [connectedMember]="connectedMember"></app-module-subject>
           </a>
-          <button type="button" class="btn btn-secondary mt-3" (keyup.enter)="createSubject()">Add a subject</button>
+          <button type="button" class="btn btn-secondary mt-3" (click)="createSubject(topic.id)">Add a subject</button>
         </ng-template>
       </ngb-panel>
     </ngb-accordion>
