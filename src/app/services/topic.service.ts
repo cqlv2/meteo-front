@@ -23,6 +23,11 @@ export class TopicService {
     return this.http.get<Topic>(`${environment.baseUrl}forum/topic/${id}`);
   }
 
+
+  addTopic(topic: Topic): Observable<Topic>{
+    return this.http.post<Topic>(`${environment.baseUrl}forum/topic`, topic);
+  }
+
   sendToTopicSubject(topic: Topic) {
     this.topicSubject.next(topic);
   }
