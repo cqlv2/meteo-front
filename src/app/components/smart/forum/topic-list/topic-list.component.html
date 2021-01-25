@@ -1,12 +1,12 @@
+<button (click)="displayTopicFormToTrue()" type="button" class="btn btn-secondary mt-3"
+  *ngIf="connectedMember && connectedMember.role.label == 'ADMIN' && !displayTopicForm">Add a topic</button>
 
-<button (click)="displayFormToTrue()" type="button" class="btn btn-secondary mt-3" *ngIf="connectedMember && connectedMember.role.label == 'ADMIN' && !displayForm">Add a topic</button>
-
-<div class="input-group mb-2" *ngIf = "displayForm">
+<div class="input-group mb-2" *ngIf="displayTopicForm">
   <div class="input-group-prepend">
-      <div class="input-group-text">Topic name</div>
+    <div class="input-group-text">Topic name</div>
   </div>
-  <input id="nom" class="form-control" type="text" [(ngModel)]="topicName"
-      placeholder="please enter your topic name" (keyup.enter)="createTopic()">
+  <input class="form-control" type="text" [(ngModel)]="topicName" placeholder="please enter your topic name"
+    (keyup.enter)="createTopic()">
 </div>
 
 <div class="row" *ngIf="topicList">
@@ -23,7 +23,15 @@
           <a *ngFor="let subject of topic.subjects" routerLink="../subjects/{{subject.id}}">
             <app-module-subject [subject]="subject" [connectedMember]="connectedMember"></app-module-subject>
           </a>
-          <button type="button" class="btn btn-secondary mt-3" (click)="createSubject(topic.id)">Add a subject</button>
+          <button type="button" class="btn btn-secondary mt-3" (click)="displaySubjectFormToTrue()"
+            *ngIf="connectedMember && !displaySubjectForm">Add a subject</button>
+          <div class="input-group mb-2" *ngIf="displaySubjectForm">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Subject name</div>
+            </div>
+            <input class="form-control" type="text" [(ngModel)]="subjectName"
+              placeholder="please enter your subject name" (keyup.enter)="createSubject(topic.id)">
+          </div>
         </ng-template>
       </ngb-panel>
     </ngb-accordion>

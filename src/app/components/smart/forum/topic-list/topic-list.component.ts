@@ -15,7 +15,8 @@ export class TopicListComponent implements OnInit {
 
   topicList: Topic[];
   connectedMember : Member;
-  displayForm =false;
+  displayTopicForm = false;
+  displaySubjectForm = false;
   topicName: string;
   subjectName: string;
   
@@ -38,8 +39,12 @@ export class TopicListComponent implements OnInit {
 
   }
 
-  displayFormToTrue(){
-    this.displayForm = true;
+  displayTopicFormToTrue(){
+    this.displayTopicForm = true;
+  }
+
+  displaySubjectFormToTrue() {
+    this.displaySubjectForm = true;
   }
 
   createTopic(){
@@ -48,7 +53,7 @@ export class TopicListComponent implements OnInit {
       data => this.topicList.push(data),
       err => console.log(err)
     );
-    this.displayForm = false;    
+    this.displayTopicForm = false;    
   }
 
 
@@ -61,6 +66,7 @@ export class TopicListComponent implements OnInit {
           if(t.id === topicId) topic = t;
         });
         topic.subjects.push(data);
+        this.displaySubjectForm = false; 
       }
     )
   }

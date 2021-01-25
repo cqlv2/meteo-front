@@ -8,7 +8,6 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./forum.component.css']
 })
 export class ForumComponent implements OnInit {
-
   constructor(private loginSrv: LoginService) { }
 
   ngOnInit(): void {
