@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Member } from 'src/app/models/member';
 import { Subject } from 'src/app/models/subject';
 
 @Component({
@@ -8,6 +9,7 @@ import { Subject } from 'src/app/models/subject';
 })
 export class ModuleSubjectComponent implements OnInit {
   @Input() subject:Subject;
+  @Input() connectedMember: Member;
 
 
   constructor() { }

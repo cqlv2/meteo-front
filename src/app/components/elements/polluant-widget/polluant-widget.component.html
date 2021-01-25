@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-3 p-3 text-center">
+        <h2 class="p-3 mb-2 {{rateColor}} text-white">{{polluant.rate}}</h2>
+
+    </div>
+    <div class="col-9">
+        <table class="table table-bordered border-primary">
+            <tr>
+                <td class="text-center" colspan=4>
+                    Principal polluant : {{polluant.dominentpol}}
+                </td>
+            </tr>
+            <tr>
+                <td>NO2</td>
+                <td>O3</td>
+                <td>PM10</td>
+                <td>PM25</td>
+            </tr>
+            <tr>
+                <td>{{polluant.no2}}</td>
+                <td>{{polluant.o3}}</td>
+                <td>{{polluant.pm10}}</td>
+                <td>{{polluant.pm25}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="row p-0 mt-0">
+    <div class="col p-0 m-0">
+        <p class="text-right"style="font-size: 0.7em; columns: rgb(51, 50, 50);">last update : {{polluant.dateAdd|date:'medium'}}</p>
+    </div>
+</div>

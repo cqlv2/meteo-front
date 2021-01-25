@@ -1,6 +1,9 @@
 export class Weather{
     id: number;
     dateAdd: Date;
+    icone:string;
+    label:string;
+    description:string;
     temp: number;
     tempMax: number;
     tempMin: number;

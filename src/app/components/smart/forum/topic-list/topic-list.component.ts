@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Member } from 'src/app/models/member';
 import { Topic } from 'src/app/models/topic';
+import { LoginService } from 'src/app/services/login.service';
 import { TopicService } from 'src/app/services/topic.service';
 
 @Component({
@@ -10,10 +12,18 @@ import { TopicService } from 'src/app/services/topic.service';
 export class TopicListComponent implements OnInit {
 
   topicList: Topic[];
+  connectedMember : Member;
   
-  constructor(private topicSrv: TopicService) {}
+  constructor(private topicSrv: TopicService, private loginSrv: LoginService) {}
 
   ngOnInit(): void {
+    this.loginSrv.isAuth().subscribe(
+      data => {
+        this.loginSrv.sendToMemberSub(new Member(data))
+        this.connectedMember = data;
+      },
+      err=>this.loginSrv.sendToMemberSub(null)
+    );
     this.topicSrv.getTopics().subscribe(
       ok => {
         this.topicList = ok;

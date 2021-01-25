@@ -1,5 +1,4 @@
 import { Routes } from '@Angular/router';
-import { HomeComponent } from '../components/smart/home/home.component'
 import { WeatherComponent } from '../components/smart/weather/weather.component'
 import { FavoriteComponent } from '../components/smart/favorite/favorite.component'
 import { ForumComponent } from '../components/smart/forum/forum.component'
@@ -14,21 +13,22 @@ import { StateComponent } from '../components/smart/register/state/state.compone
 import { ServerComponent } from '../components/error/server/server.component';
 import { TopicListComponent } from '../components/smart/forum/topic-list/topic-list.component';
 import { SubjectComponent } from '../components/smart/forum/subject/subject.component';
+import { InformationComponent } from '../components/smart/information/information.component';
 
 
 
 export const ROUTES: Routes = [
     // routage par defaut
-    { path: '', pathMatch: 'full', redirectTo: 'home' },
-    //    home
-    {
-        path: 'home', component: HomeComponent,
-    },
-
+    { path: '', pathMatch: 'full', redirectTo: 'weather' },
     // weather
     {
         path: 'weather', component: WeatherComponent,
     },
+    //    informations
+    {
+        path: 'information', component: InformationComponent,
+    },
+
     // favorites
     {
         path: 'favorites', component: FavoriteComponent,

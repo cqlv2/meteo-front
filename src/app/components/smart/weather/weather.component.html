@@ -1,26 +1,17 @@
-<!-- <p>weather works!</p>
-
-<div *ngFor= "let city of cities">
-    {{city.cityName}}
-    <div *ngFor= "let weather of city.weathers">
-        ------------------------ {{weather.temp}}
-    </div>
-</div> -->
-
 <div class="row">
 
     <div class="col-sm-12 col-md-6">
-        Afficher la carte
-        <!-- Déclaration du conteneur de la carte avec l'id "frugalmap" -->
-        <div id="frugalmap">
-
+        <app-map-widget *ngIf="cities" [cities]=cities></app-map-widget>
+        <div *ngIf="!cities" class="loading">
+            <img src="{{loadingImg}}" alt="loading...">
+            <p class="text-center">loading...</p>
         </div>
     </div>
 
     <div class="col-sm-12 col-md-6">
         <div class="row">
             <div class="col">
-                <app-city-search [cities] = cities></app-city-search>
+                <app-city-search [cities]=cities></app-city-search>
             </div>
         </div>
         <div class="row">
@@ -29,7 +20,4 @@
             </div>
         </div>
     </div>
-
 </div>
-
-

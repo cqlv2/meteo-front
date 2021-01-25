@@ -13,12 +13,7 @@ export class Member {
   favorites: Favorite[];
   topics: Topic[];
 
-  constructor(params: any) {    
+  constructor(params: any) {
     Object.assign(this, params);
   }
-
-  estAnonyme(): boolean {
-    return this.email === undefined;
-  }
-
 }

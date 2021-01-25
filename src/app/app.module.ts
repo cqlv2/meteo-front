@@ -12,7 +12,6 @@ import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData, CommonModule } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
-import { HomeComponent } from './components/smart/home/home.component';
 import { WeatherComponent } from './components/smart/weather/weather.component';
 import { FavoriteComponent } from './components/smart/favorite/favorite.component';
 import { ForumComponent } from './components/smart/forum/forum.component';
@@ -43,6 +42,9 @@ import { CityInfosComponent } from './components/elements/city-infos/city-infos.
 import { WeatherWidgetComponent } from './components/elements/weather-widget/weather-widget.component';
 import { InfosCityWidgetComponent } from './components/elements/infos-city-widget/infos-city-widget.component';
 import { InfosPollutionWidgetComponent } from './components/elements/infos-pollution-widget/infos-pollution-widget.component';
+import { InformationComponent } from './components/smart/information/information.component';
+import { MapWidgetComponent } from './components/elements/map-widget/map-widget.component';
+import { PolluantWidgetComponent } from './components/elements/polluant-widget/polluant-widget.component';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -52,7 +54,6 @@ registerLocaleData(localeFr, 'fr');
     HeaderComponent,
     MainMenuComponent,
     FooterComponent,
-    HomeComponent,
     WeatherComponent,
     FavoriteComponent,
     ForumComponent,
@@ -76,6 +77,9 @@ registerLocaleData(localeFr, 'fr');
     WeatherWidgetComponent,
     InfosCityWidgetComponent,
     InfosPollutionWidgetComponent,
+    InformationComponent,
+    MapWidgetComponent,
+    PolluantWidgetComponent,
   ],
   imports: [
     CommonModule,

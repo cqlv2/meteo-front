@@ -1,4 +1,8 @@
-#frugalmap {
+.loading {
     height: 600px;
     width: 100%
+}
+.loading img{
+    width: 100%;
+    margin: auto;
 }

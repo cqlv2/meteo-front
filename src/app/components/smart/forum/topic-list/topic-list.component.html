@@ -10,7 +10,7 @@
           <p *ngIf="topic.subjects.length==0">Pas d'doigts pied, pas d'sujet !</p>
           <!-- sinon -->
           <a *ngFor="let subject of topic.subjects" routerLink="../subjects/{{subject.id}}">
-            <app-module-subject [subject]="subject"></app-module-subject>
+            <app-module-subject [subject]="subject" [connectedMember]="connectedMember"></app-module-subject>
           </a>
         </ng-template>
       </ngb-panel>

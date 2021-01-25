@@ -4,7 +4,7 @@
 </p> -->
 
 <div *ngIf="!city">
-    Select city !!!
+    <p>Please select a city</p>
 </div>
 <div *ngIf="city">
     <ngb-accordion #acc="ngbAccordion" class="mt-3"> 
@@ -28,7 +28,7 @@
     
         <ngb-panel title="Air quality informations">
             <ng-template ngbPanelContent>
-                
+                <app-polluant-widget [polluant]="city.polluants[city.polluants.length -1]"></app-polluant-widget>
             </ng-template>
         </ngb-panel>
     

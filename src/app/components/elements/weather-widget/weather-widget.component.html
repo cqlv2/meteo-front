@@ -1,5 +1,60 @@
+<div class="row shadow p-1 mt-5 mb-0 bg-white rounded">
+    <div class="col-2 align-item-center">
+        <p><img class="weatherIcone" src="{{weatherIco}}" alt="{{weather.label}}" title="{{weather.description}}"></p>
+        <p class="font-weight-bolder">{{weather.temp}} °C</p>
+    </div>
+    <div class="col-10">
+        <div class="row">
+            <div class="col border-bottom p-2">
+                <p class="text-center">
+                    <img class="infoWeatherIcone" src="assets/weatherIcon/tempMin.png" alt="tempMin"
+                        title="minimal temp">
+                    {{weather.tempMin}} °C
+                    <img class="infoWeatherIcone" src="assets/weatherIcon/tempMax.png" alt="tempMax"
+                        title="maximal temp">
+                    {{weather.tempMax}} °C
+                </p>
+            </div>
+            <div class="col border-bottom p-2">
+                <p class="text-center">
+                    <img class="infoWeatherIcone" src="assets/weatherIcon/humidity.png" alt="humidity" title="humidity">
+                    {{weather.humidity}} %
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col p-2">
+                <p class="text-center">
+                    <img class="infoWeatherIcone" src="assets/weatherIcon/wind.png" alt="wind" title="wind">
+                    <img class="windArrow" [style]="style" src="{{windArrow}}" alt="windDirection">
+                    {{weather.windSpeed}}m/s
+                </p>
+            </div>
+            <div class="col p-2">
+                <p class="text-center">
+                    <img class="infoWeatherIcone" src="assets/weatherIcon/pressure.png" alt="pressure" title="pressure">
+                    {{weather.pressure}} Pa
+                </p>
+            </div>
 
-    <div class="row shadow p-1 mb-5 bg-white rounded">
+        </div>
+    </div>
+</div>
+<div class="row p-0 mt-0">
+    <div class="col p-0 m-0">
+        <p class="text-right"style="font-size: 0.7em; columns: rgb(51, 50, 50);">last update : {{weather.dateAdd|date:'medium'}}</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <div class="row shadow p-1 mb-5 bg-white rounded">
 
         <div class="col-12">
 
@@ -30,4 +85,4 @@
                 </tr>
             </table>
         </div>
-    </div>
+    </div> -->

@@ -11,9 +11,16 @@ export class WeatherWidgetComponent implements OnInit {
   @Input()
   weather: Weather;
 
+  windArrow: string = "assets/wind_arrow.png";
+  style: string;
+  weatherIco: string;
+
   constructor() { }
 
   ngOnInit(): void {
-  }
+    this.style = "transform: rotate(" + this.weather.windDirection + "deg)";
+    if (this.weather.icone != null) this.weatherIco = "assets/weatherIcon/" + this.weather.icone + ".png";
+    else this.weatherIco = "assets/weatherIcon/na.png";
 
+  }
 }
