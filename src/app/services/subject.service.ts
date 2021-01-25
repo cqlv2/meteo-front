@@ -18,5 +18,9 @@ export class SubjectService {
     return this.http.get<Subject>(`${environment.baseUrl}forum/subject/${id}`);
   }
 
+  createSubject(subject: Subject){
+    return this.http.post<Subject>(`${environment.baseUrl}forum/subject`, subject);
+  }
+
 }
 

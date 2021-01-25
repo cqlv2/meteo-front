@@ -4,9 +4,7 @@
         <p>AUTOR  - {{subject.dateAdd|date}}</p>
         <app-module-answer *ngFor= "let answer of subject.answers" [connectedMember]="connectedMember" [answer]=answer></app-module-answer>
 
-
-
-
+       
         <!-- <div >
             {{answer.contain}}
             <div *ngFor = "let comment of answer.comments">
@@ -15,5 +13,7 @@
         </div>  -->
     </div> 
 </div>
+
+
 
 
