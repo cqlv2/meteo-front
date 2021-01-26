@@ -46,6 +46,9 @@ import { InformationComponent } from './components/smart/information/information
 import { MapWidgetComponent } from './components/elements/map-widget/map-widget.component';
 import { PolluantWidgetComponent } from './components/elements/polluant-widget/polluant-widget.component';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
+import { SubjectFormModuleComponent } from './components/elements/subject-form-module/subject-form-module.component';
+import { ModuleAnswerFormComponent } from './components/elements/module-answer-form/module-answer-form.component';
+import { CommentFormModuleComponent } from './components/elements/comment-form-module/comment-form-module.component';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -81,6 +84,9 @@ registerLocaleData(localeFr, 'fr');
     InformationComponent,
     MapWidgetComponent,
     PolluantWidgetComponent,
+    SubjectFormModuleComponent,
+    ModuleAnswerFormComponent,
+    CommentFormModuleComponent,
   ],
   imports: [
     CommonModule,

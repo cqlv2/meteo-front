@@ -16,12 +16,16 @@
                     <ngb-accordion #acc="ngbAccordion">
                         <ngb-panel title="{{answer.comments.length}} comments">
                             <ng-template ngbPanelContent>
-                                <!-- liste des coms -->
-                                <p *ngIf="answer.comments.length==0 && connectedMember">be the first to comment</p>
+
+
                                 <p *ngIf="!connectedMember">logIn for comment</p>
                                 <!-- boucle sur le module commentaire -->
-                                <app-module-comment *ngFor="let comment of answer.comments" [comment]=comment></app-module-comment>
-                                
+                                <app-module-comment *ngFor="let comment of answer.comments" [comment]=comment>
+                                </app-module-comment>
+                                <!-- liste des coms -->
+                                <p *ngIf="answer.comments.length==0 && connectedMember">be the first to comment</p>
+                                <app-comment-form-module *ngIf="connectedMember" [connectedMember]="connectedMember"
+                                    [message]="answer"></app-comment-form-module>
                             </ng-template>
                         </ngb-panel>
 

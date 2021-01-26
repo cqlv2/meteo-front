@@ -1,4 +1,4 @@
-<button (click)="displayTopicFormToTrue()" type="button" class="btn btn-secondary mt-3"
+<button (click)="displayTopicFormToTrue()" type="button" class=" mb-3 btn btn-secondary mt-3"
   *ngIf="connectedMember && connectedMember.role.label == 'ADMIN' && !displayTopicForm">Add a topic</button>
 
 <div class="input-group mb-2" *ngIf="displayTopicForm">
@@ -31,27 +31,7 @@
 
 
 
-
-          <!-- formulaire du sujet -->
-          <div class="mb-2" *ngIf="displaySubjectForm && topic.id== topicToAdd">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Subject name</div>
-            </div>
-            <input class="form-control" type="text" [(ngModel)]="subjectName"
-              placeholder="please enter your subject name">
-            <!-- (keyup.enter)="createSubject(topic.id)"  -->
-            <div>
-              <textarea [(ngModel)]="firstAnswer" resize="none" cols="30" rows="10"></textarea>
-            </div>
-            <div>
-              <button (click)="createSubject(topic.id)">aqzeaqsdqsdq</button>
-            </div>
-          </div>
-
-
-
-
-
+          <app-subject-form-module (displaySubjectForm)="cancelSubject($event)" [connectedMember]="connectedMember" [topic]="topic" *ngIf="displaySubjectForm && topic.id== topicToAdd"></app-subject-form-module>
         </ng-template>
       </ngb-panel>
     </ngb-accordion>

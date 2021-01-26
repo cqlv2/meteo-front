@@ -2,15 +2,10 @@
     <div class="col">
         <h3>{{subject.label}}</h3>
         <p>AUTOR  - {{subject.dateAdd|date}}</p>
-        <app-module-answer *ngFor= "let answer of subject.answers" [connectedMember]="connectedMember" [answer]=answer></app-module-answer>
+        <app-module-answer *ngFor= "let answer of subject.answers" [connectedMember]="connectedMember" [answer]=answer [subject]="subject"></app-module-answer>
 
-       
-        <!-- <div >
-            {{answer.contain}}
-            <div *ngFor = "let comment of answer.comments">
-                {{comment.contain}}
-            </div>
-        </div>  -->
+        <app-module-answer-form *ngIf="connectedMember" [connectedMember]="connectedMember" [subject]="subject"></app-module-answer-form>
+    <div *ngIf="!connectedMember"><p>Login to answer</p></div>
     </div> 
 </div>
 

@@ -1,0 +1,24 @@
+<div class="col-sm-12 col-md-8 col-lg-6 text-center">
+    <fieldset class="border p-3 mt-3 text-left">
+        <legend>New Subject</legend>
+
+        <!-- champ subject name -->
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Subject name</div>
+            </div>
+            <input id="nom" [(ngModel)]="subjectName" class="form-control" type="text"
+                placeholder="please enter your subject name">
+        </div>
+
+        <!-- champ first answer -->
+        <div class="input-group mb-2">
+            <textarea [(ngModel)]="firstAnswer" class="form-control" resize="none" cols="30" rows="10"
+                placeholder="Enter your message ..."></textarea>
+        </div>
+    </fieldset>
+    <div>
+        <button (click)="createSubject()" class="mx-3 btn btn-secondary mt-3">Create</button>
+        <button (click)="cancelSubject()" class="mx-3 btn btn-secondary mt-3">Cancel</button>
+    </div>
+</div>
