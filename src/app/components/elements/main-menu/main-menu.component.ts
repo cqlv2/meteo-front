@@ -9,7 +9,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class MainMenuComponent implements OnInit {
 
-  public titleApp = "WeatherApp";
+  public titleApp = "météo? t'es pas là";
   public logoUrl = "https://www.laboulegryonnaise.ch/wp-content/uploads/2016/04/image-5.png";
   public isCollapsed = true;
 

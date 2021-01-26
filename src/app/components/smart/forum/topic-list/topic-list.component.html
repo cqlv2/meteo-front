@@ -23,15 +23,35 @@
           <a *ngFor="let subject of topic.subjects" routerLink="../subjects/{{subject.id}}">
             <app-module-subject [subject]="subject" [connectedMember]="connectedMember"></app-module-subject>
           </a>
-          <button type="button" class="btn btn-secondary mt-3" (click)="displaySubjectFormToTrue()"
+
+
+          <!-- ajouter un sujet si connecter -->
+          <button type="button" class="btn btn-secondary mt-3" (click)="displayFormSubject(topic.id)"
             *ngIf="connectedMember && !displaySubjectForm">Add a subject</button>
-          <div class="input-group mb-2" *ngIf="displaySubjectForm">
+
+
+
+
+          <!-- formulaire du sujet -->
+          <div class="mb-2" *ngIf="displaySubjectForm && topic.id== topicToAdd">
             <div class="input-group-prepend">
               <div class="input-group-text">Subject name</div>
             </div>
             <input class="form-control" type="text" [(ngModel)]="subjectName"
-              placeholder="please enter your subject name" (keyup.enter)="createSubject(topic.id)">
+              placeholder="please enter your subject name">
+            <!-- (keyup.enter)="createSubject(topic.id)"  -->
+            <div>
+              <textarea [(ngModel)]="firstAnswer" resize="none" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+              <button (click)="createSubject(topic.id)">aqzeaqsdqsdq</button>
+            </div>
           </div>
+
+
+
+
+
         </ng-template>
       </ngb-panel>
     </ngb-accordion>
