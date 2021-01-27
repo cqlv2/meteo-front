@@ -39,7 +39,6 @@ import { ModuleCommentComponent } from './components/elements/module-comment/mod
 import {Nl2BrPipeModule} from 'nl2br-pipe';
 import { CitySearchComponent } from './components/elements/city-search/city-search.component';
 import { CityInfosComponent } from './components/elements/city-infos/city-infos.component';
-import { WeatherWidgetComponent } from './components/elements/weather-widget/weather-widget.component';
 import { InfosCityWidgetComponent } from './components/elements/infos-city-widget/infos-city-widget.component';
 import { InfosPollutionWidgetComponent } from './components/elements/infos-pollution-widget/infos-pollution-widget.component';
 import { InformationComponent } from './components/smart/information/information.component';
@@ -49,6 +48,9 @@ import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluste
 import { SubjectFormModuleComponent } from './components/elements/subject-form-module/subject-form-module.component';
 import { ModuleAnswerFormComponent } from './components/elements/module-answer-form/module-answer-form.component';
 import { CommentFormModuleComponent } from './components/elements/comment-form-module/comment-form-module.component';
+import { FavoriteListComponent } from './components/elements/favorite-list/favorite-list.component';
+import { FavoriteAddComponent } from './components/elements/favorite-add/favorite-add.component';
+import { WidgetWeatherComponent } from './components/elements/widget-weather/widget-weather.component';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -78,7 +80,6 @@ registerLocaleData(localeFr, 'fr');
     ModuleCommentComponent,
     CitySearchComponent,
     CityInfosComponent,
-    WeatherWidgetComponent,
     InfosCityWidgetComponent,
     InfosPollutionWidgetComponent,
     InformationComponent,
@@ -87,6 +88,9 @@ registerLocaleData(localeFr, 'fr');
     SubjectFormModuleComponent,
     ModuleAnswerFormComponent,
     CommentFormModuleComponent,
+    FavoriteListComponent,
+    FavoriteAddComponent,
+    WidgetWeatherComponent,
   ],
   imports: [
     CommonModule,

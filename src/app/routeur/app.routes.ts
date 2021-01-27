@@ -14,6 +14,8 @@ import { ServerComponent } from '../components/error/server/server.component';
 import { TopicListComponent } from '../components/smart/forum/topic-list/topic-list.component';
 import { SubjectComponent } from '../components/smart/forum/subject/subject.component';
 import { InformationComponent } from '../components/smart/information/information.component';
+import { FavoriteListComponent } from '../components/elements/favorite-list/favorite-list.component';
+import { FavoriteAddComponent } from '../components/elements/favorite-add/favorite-add.component';
 
 
 
@@ -32,6 +34,12 @@ export const ROUTES: Routes = [
     // favorites
     {
         path: 'favorites', component: FavoriteComponent,
+        children: [
+            {path: '', pathMatch: 'full', redirectTo: 'view'},
+            {path: 'view', component: FavoriteListComponent},
+            {path: 'add', component: FavoriteAddComponent},
+            
+        ]
     },
     // forum
     {

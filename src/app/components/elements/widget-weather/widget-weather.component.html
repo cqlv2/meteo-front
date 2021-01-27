@@ -1,0 +1,50 @@
+
+<!-- widget affichage meteo -->
+<div class="row shadow rounded m-3 p-3">
+    <!-- colone 1 : affichage de la temperature -->
+    <div class="col-xs-12 col-md-4 col-lg-2">
+        <p><img class="weatherIcone" src="{{weatherIco}}" alt="{{weather.label}}" title="{{weather.description}}"></p>
+        <p class="font-weight-bolder">{{weather.temp}} °C</p>
+    </div>
+    <!-- colone 2 affichage des info complementaire
+    peut etre cacher par les favoris -->
+    <div class="col-xs-12 col-md-8 col-lg-10">
+        <!-- gestion du responsive du widget -->
+        <div class="row">
+            <!-- info temp min max -->
+            <div *ngIf="showMinMax" class="col-xs12 col-lg-6">
+                <p class="text-center">
+                    <img class="infoWeatherIcone" src="assets/weatherIcon/tempMin.png" alt="tempMin"
+                        title="minimal temp">
+                    {{weather.tempMin}} °C
+                    <img class="infoWeatherIcone" src="assets/weatherIcon/tempMax.png" alt="tempMax"
+                        title="maximal temp">
+                    {{weather.tempMax}} °C
+                </p>
+            </div>
+            <!-- info humidity -->
+            <div *ngIf="showHumidity"class="col-xs12 col-lg-6">
+                <p class="text-center">
+                    <img class="infoWeatherIcone" src="assets/weatherIcon/humidity.png" alt="humidity" title="humidity">
+                    {{weather.humidity}} %
+                </p>
+            </div>
+            <!-- info wind  -->
+            <div *ngIf="showWind" class="col-xs12 col-lg-6">
+                <p class="text-center">
+                    <img class="infoWeatherIcone" src="assets/weatherIcon/wind.png" alt="wind" title="wind">
+                    <img class="windArrow" [style]="style" src="{{windArrow}}" alt="windDirection">
+                    {{weather.windSpeed}}m/s
+                </p>
+            </div>
+            <!-- info pressure -->
+            <div *ngIf="showPressure" class="col-xs12 col-lg-6">
+                <p class="text-center">
+                    <img class="infoWeatherIcone" src="assets/weatherIcon/pressure.png" alt="pressure" title="pressure">
+                    {{weather.pressure}} Pa
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>

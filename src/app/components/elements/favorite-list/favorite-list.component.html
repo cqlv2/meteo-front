@@ -1,0 +1,16 @@
+<!-- lignes d'entete -->
+<div class="row">
+    <div class="col">
+        <button class="mx-3 btn btn-secondary mt-3" (click)="createFavorite()">Create new</button>
+    </div>
+</div>
+<!-- affichage de la liste des favoris -->
+<div class="row">
+    <div *ngFor="let favorite of favoriteList" class="col-xs-12 col-md-6 col-lg-4">
+        <fieldset>
+            <legend>{{favorite.cityDtoResponse.cityName}}</legend>
+            <app-widget-weather [weather]="favorite.cityDtoResponse.weathers[favorite.cityDtoResponse.weathers.length -1]" [favorite]="favorite"></app-widget-weather>
+            <app-info-pollution-widget></app-info-pollution-widget>
+        </fieldset>
+    </div>
+</div>
