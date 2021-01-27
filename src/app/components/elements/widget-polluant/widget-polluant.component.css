@@ -1,0 +1,10 @@
+.polluantLabel{
+    font-size: 0.7em;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.polluantValue{
+    font-size: 0.7em;
+    text-align: center;
+}

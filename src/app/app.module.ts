@@ -43,7 +43,6 @@ import { InfosCityWidgetComponent } from './components/elements/infos-city-widge
 import { InfosPollutionWidgetComponent } from './components/elements/infos-pollution-widget/infos-pollution-widget.component';
 import { InformationComponent } from './components/smart/information/information.component';
 import { MapWidgetComponent } from './components/elements/map-widget/map-widget.component';
-import { PolluantWidgetComponent } from './components/elements/polluant-widget/polluant-widget.component';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 import { SubjectFormModuleComponent } from './components/elements/subject-form-module/subject-form-module.component';
 import { ModuleAnswerFormComponent } from './components/elements/module-answer-form/module-answer-form.component';
@@ -51,6 +50,8 @@ import { CommentFormModuleComponent } from './components/elements/comment-form-m
 import { FavoriteListComponent } from './components/elements/favorite-list/favorite-list.component';
 import { FavoriteAddComponent } from './components/elements/favorite-add/favorite-add.component';
 import { WidgetWeatherComponent } from './components/elements/widget-weather/widget-weather.component';
+import { WidgetPolluantComponent } from './components/elements/widget-polluant/widget-polluant.component';
+import {NgToggleModule} from '@nth-cloud/ng-toggle';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -84,13 +85,13 @@ registerLocaleData(localeFr, 'fr');
     InfosPollutionWidgetComponent,
     InformationComponent,
     MapWidgetComponent,
-    PolluantWidgetComponent,
     SubjectFormModuleComponent,
     ModuleAnswerFormComponent,
     CommentFormModuleComponent,
     FavoriteListComponent,
     FavoriteAddComponent,
     WidgetWeatherComponent,
+    WidgetPolluantComponent,
   ],
   imports: [
     CommonModule,
@@ -101,6 +102,7 @@ registerLocaleData(localeFr, 'fr');
     RouterModule.forRoot(ROUTES),
     [Nl2BrPipeModule],
     LeafletMarkerClusterModule,
+    NgToggleModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "fr-FR" },

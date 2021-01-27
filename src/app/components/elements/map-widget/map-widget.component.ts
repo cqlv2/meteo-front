@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { City } from 'src/app/models/city';
+import { CityService } from 'src/app/services/city.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class MapWidgetComponent implements OnInit {
   myfrugalmap: any;
   zoomLevel = 5;
   @Input() cities : City[];
-  constructor() { }
+  constructor(private citySrv: CityService) { }
 
   ngOnInit(): void {
     // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
@@ -33,6 +34,7 @@ var markersCluster = new L.MarkerClusterGroup();
 this.cities.forEach(city => {
   var latLng = new L.LatLng(city.latitude, city.longitude);
     var marker = new L.Marker(latLng, {title: city.cityName});
+    marker.addEventListener('click', ()=> this.citySrv.sendToCitySubject(city));
     markersCluster.addLayer(marker);
 });
 

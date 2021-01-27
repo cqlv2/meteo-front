@@ -1,0 +1,37 @@
+<div class="row shadow rounded m-3">
+    <!-- colonne 1 : affichage de l'indice et polluant principal -->
+    <div class="col-sm-12 col-lg-4">
+        <p class="p-3 mb-2 {{rateColor}} text-white polluantValue">{{polluant.rate}}</p>
+        <p class="polluantLabel">Polluant principal</p>
+        <p class="polluantValue">{{polluant.dominentpol}}</p>
+    </div>
+    <!-- colonne 2 : affichage des infos complémentaires -->
+    <div class="col-sm-12 col-lg-8">
+        <div class="row">
+            <!-- colonne affichage NO2 -->
+            <div class="col-sm-12 col-lg-6 border" *ngIf="showNO2">
+                <p class="polluantLabel">NO2</p>
+                <p *ngIf = "polluant.no2 != 0" class="polluantValue">{{polluant.no2}}</p>
+                <p *ngIf = "polluant.no2 == 0" class="polluantValue" >N/A</p>
+            </div>
+             <!-- colonne affichage O3 -->
+            <div class="col-sm-12 col-lg-6 border" *ngIf="showO3">
+                <p class="polluantLabel">03</p>
+                <p *ngIf = "polluant.o3 != 0" class="polluantValue">{{polluant.o3}}</p>
+                <p *ngIf = "polluant.o3 == 0" class="polluantValue">N/A</p>
+            </div>
+             <!-- colonne affichage PM10 -->
+            <div class="col-sm-12 col-lg-6 border" *ngIf="showPM10">
+                <p class="polluantLabel">PM10</p>
+                <p *ngIf = "polluant.pm10 != 0" class="polluantValue">{{polluant.pm10}}</p>
+                <p *ngIf = "polluant.pm10 == 0" class="polluantValue">N/A</p>
+            </div>
+             <!-- colonne affichage PM25 -->
+            <div class="col-sm-12 col-lg-6 border" *ngIf="showPM25">
+                <p class="polluantLabel">PM25</p>
+                <p *ngIf = "polluant.pm25 != 0" class="polluantValue">{{polluant.pm25}}</p>
+                <p *ngIf = "polluant.pm25 == 0" class="polluantValue">N/A</p>
+            </div>
+        </div>
+    </div>
+</div>

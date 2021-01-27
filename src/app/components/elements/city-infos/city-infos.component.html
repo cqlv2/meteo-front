@@ -32,7 +32,8 @@
     
         <ngb-panel title="Air quality informations">
             <ng-template ngbPanelContent>
-                <app-polluant-widget [polluant]="city.polluants[city.polluants.length -1]"></app-polluant-widget>
+                <!-- <app-polluant-widget [polluant]="city.polluants[city.polluants.length -1]"></app-polluant-widget> -->
+                <app-widget-polluant [polluant]="city.polluants[city.polluants.length -1]"></app-widget-polluant>
             </ng-template>
         </ngb-panel>
     

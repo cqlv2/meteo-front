@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PolluantWidgetComponent } from './polluant-widget.component';
+import { WidgetPolluantComponent } from './widget-polluant.component';
 
-describe('PolluantWidgetComponent', () => {
-  let component: PolluantWidgetComponent;
-  let fixture: ComponentFixture<PolluantWidgetComponent>;
+describe('WidgetPolluantComponent', () => {
+  let component: WidgetPolluantComponent;
+  let fixture: ComponentFixture<WidgetPolluantComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PolluantWidgetComponent ]
+      declarations: [ WidgetPolluantComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PolluantWidgetComponent);
+    fixture = TestBed.createComponent(WidgetPolluantComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

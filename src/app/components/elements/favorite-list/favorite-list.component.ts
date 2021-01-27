@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Favorite } from 'src/app/models/favorite';
 import { Member } from 'src/app/models/member';
 import { FavoriteService } from 'src/app/services/favorite.service';
@@ -15,7 +16,7 @@ export class FavoriteListComponent implements OnInit {
   favoriteList:Favorite[];
   connectedMember: Member;
 
-  constructor(private loginSrv: LoginService, private favoriteSrv: FavoriteService) { }
+  constructor(private loginSrv: LoginService, private favoriteSrv: FavoriteService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginSrv.isAuth().subscribe(
@@ -46,7 +47,7 @@ export class FavoriteListComponent implements OnInit {
   }
 
   createFavorite(){
-    
+    this.router.navigateByUrl("/favorites/add");
   }
 
 }

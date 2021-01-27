@@ -16,4 +16,8 @@ export class FavoriteService {
     return this.http.get<Favorite[]>(environment.baseUrl+"api/favorite/member/"+memberId, {withCredentials:true});
   }
 
+  createFavorite(favorite: Favorite): Observable<Favorite>{
+    return this.http.post<Favorite>(environment.baseUrl + "api/favorite", favorite, {withCredentials:true});
+  }
+
 }

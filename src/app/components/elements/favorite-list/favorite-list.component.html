@@ -1,16 +1,31 @@
 <!-- lignes d'entete -->
-<div class="row">
-    <div class="col">
+<div class="row" *ngIf="connectedMember">
+    <div class="col-9">
+       <p *ngIf="favoriteList">
+           My favorites ({{favoriteList.length}})
+       </p> 
+    </div>
+    <div class="col-3">
         <button class="mx-3 btn btn-secondary mt-3" (click)="createFavorite()">Create new</button>
     </div>
 </div>
 <!-- affichage de la liste des favoris -->
-<div class="row">
+<div class="row" *ngIf="connectedMember">
     <div *ngFor="let favorite of favoriteList" class="col-xs-12 col-md-6 col-lg-4">
         <fieldset>
             <legend>{{favorite.cityDtoResponse.cityName}}</legend>
-            <app-widget-weather [weather]="favorite.cityDtoResponse.weathers[favorite.cityDtoResponse.weathers.length -1]" [favorite]="favorite"></app-widget-weather>
+            <app-widget-weather
+                [weather]="favorite.cityDtoResponse.weathers[favorite.cityDtoResponse.weathers.length -1]"
+                [favorite]="favorite"></app-widget-weather>
             <app-info-pollution-widget></app-info-pollution-widget>
+            <app-widget-polluant [favorite]="favorite"
+                [polluant]="favorite.cityDtoResponse.polluants[favorite.cityDtoResponse.polluants.length -1]">
+            </app-widget-polluant>
         </fieldset>
+    </div>
+</div>
+<div class="row" *ngIf="!connectedMember">
+    <div class="col">
+        <p class="text-center">Please login to access at this functionnality</p>
     </div>
 </div>
