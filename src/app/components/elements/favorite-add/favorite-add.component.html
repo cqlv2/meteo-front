@@ -12,16 +12,12 @@
 <div class="row mt-3">
     <div class="col">
         <div class="input-group mb-2">
-            <div class="input-group-prepend">
-                <div class="input-group-text">Search</div>
-            </div>
             <input [(ngModel)]="citySearched" list="cityList" id="cityName" class="form-control" type="text"
                 placeholder="please enter your city name" (keyup.enter)="checkCity()">
+            <div class="input-group-append">
+                <button class="btn btn-secondary" (click)="checkCity()">search</button>
+            </div>
         </div>
-    </div>
-    <div>
-        <button class="mx-3 btn btn-secondary" (click)="checkCity()">search</button>
-
     </div>
     <datalist id="cityList">
         <option *ngFor="let city of cities">{{city.cityName}}</option>
@@ -31,7 +27,8 @@
 
 </div>
 <div class="row" *ngIf="city">
-    <div class="col-sm-12 col-md-6">
+    <div class="col-md-1"></div>
+    <div class="col-sm-12 col-md-4">
         <p>Weather informations
             <ng-toggle [(ngModel)]="showWeather" (click)="switchOff()"></ng-toggle>
         </p>
@@ -63,7 +60,8 @@
 
         </table>
     </div>
-    <div class="col-sm-12 col-md-6">
+    <div class="col-md-2"></div>
+    <div class="col-sm-12 col-md-4">
         <p>Polluant(s) informations
             <ng-toggle [(ngModel)]="showPolluants" (click)="switchOff()"></ng-toggle>
         </p>
@@ -95,13 +93,15 @@
 
         </table>
     </div>
+    <div class="col-md-1"></div>
+
 </div>
 
 <div class="row">
     <div class="col">
         <p class="text-right">
             <button class="mx-3 btn btn-secondary mt-3" (click)="validate()" *ngIf="city">Validate</button>
-            <button class="mx-3 btn btn-secondary mt-3" (click)="locationBack()">Back</button>
+            <button class="mx-3 btn btn-secondary mt-3" (click)="locationBack()">Cancel</button>
         </p>
     </div>
 </div>

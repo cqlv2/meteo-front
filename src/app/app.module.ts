@@ -53,6 +53,7 @@ import { WidgetWeatherComponent } from './components/elements/widget-weather/wid
 import { WidgetPolluantComponent } from './components/elements/widget-polluant/widget-polluant.component';
 import {NgToggleModule} from '@nth-cloud/ng-toggle';
 import { WidgetLoginRequiredComponent } from './components/elements/widget-login-required/widget-login-required.component';
+import { EditTopicComponent } from './components/modals/edit-topic/edit-topic.component';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -94,6 +95,7 @@ registerLocaleData(localeFr, 'fr');
     WidgetWeatherComponent,
     WidgetPolluantComponent,
     WidgetLoginRequiredComponent,
+    EditTopicComponent,
   ],
   imports: [
     CommonModule,

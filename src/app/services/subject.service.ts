@@ -22,5 +22,9 @@ export class SubjectService {
     return this.http.post<Subject>(`${environment.baseUrl}forum/subject`, subject);
   }
 
+  deleteSubject(subjectId : number) {
+    return this.http.delete<Subject>(`${environment.baseUrl}forum/subject/${subjectId}`)
+  }
+
 }
 

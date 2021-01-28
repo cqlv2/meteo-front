@@ -16,6 +16,19 @@
       <!-- pour chaque topic de la liste topic -->
       <ngb-panel *ngFor="let topic of topicList" title="{{topic.label}} ({{topic.subjects.length}} subjects)">
         <ng-template ngbPanelContent>
+          <div class="row">
+            <div class="col">
+              <p class="text-right" style="position : relative; bottom : 70px">
+                <i class="fas fa-pencil-alt ml-2" style="font-size: 1.3em; color: #e6c60e"
+                  (click)="open(content, topic)"
+                  *ngIf="connectedMember && connectedMember.role.label == 'ADMIN' && !displaySubjectForm"></i>
+                <i class="fas fa-trash ml-2" style="font-size: 1.3em; color:#f8643f"
+                  *ngIf="connectedMember && connectedMember.role.label == 'ADMIN' && !displaySubjectForm"
+                  (click)="deleteTopic(topic)"></i>
+              </p>
+            </div>
+          </div>
+
           <!-- pour chaque sujet de chaque topic -->
           <!-- si pas de sujet -->
           <p *ngIf="topic.subjects.length==0">Pas d'doigts pied, pas d'sujet !</p>
@@ -31,9 +44,31 @@
 
 
 
-          <app-subject-form-module (displaySubjectForm)="cancelSubject($event)" [connectedMember]="connectedMember" [topic]="topic" *ngIf="displaySubjectForm && topic.id== topicToAdd"></app-subject-form-module>
+          <app-subject-form-module (displaySubjectForm)="cancelSubject($event)" [connectedMember]="connectedMember"
+            [topic]="topic" *ngIf="displaySubjectForm && topic.id== topicToAdd"></app-subject-form-module>
         </ng-template>
       </ngb-panel>
     </ngb-accordion>
   </div>
 </div>
+
+<!-- MODAL : edit topic -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Update topic</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Topic name</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="newLabel" placeholder="Please enter the topic name">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </div>
+</ng-template>

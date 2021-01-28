@@ -36,4 +36,11 @@ export class TopicService {
     return this.topicSubject.asObservable();
   }
 
+  deleteTopic(topicId: number) {
+    return this.http.delete(`${environment.baseUrl}forum/topic/${topicId}`, {withCredentials:true, responseType:"text"})
+  }
+
+  updateTopic(id : number, label : string) : Observable<Topic>{
+    return this.http.put<Topic>(`${environment.baseUrl}forum/topic/edit/${id}`, label, {withCredentials:true});
+  }
 }

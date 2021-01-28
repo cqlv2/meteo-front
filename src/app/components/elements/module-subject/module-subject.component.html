@@ -1,5 +1,5 @@
 <div class="row mt-1 shadow p-1 bg-white rounded">
-    <div class="col-6">
+    <div class="col-5">
         <div class="row">
             <div class="col">
                 <h5>{{subject.label}}</h5>
@@ -11,8 +11,21 @@
             </div>
         </div>
     </div>
-    <div class="col-4">
-        <p>last message :ecris en dur dans subjectComponent.html !</p>
+    <div class="col-2">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-warning mt-3" *ngIf="connectedMember" (click)="editSubject()">Edit</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-danger mt-3" *ngIf="connectedMember"
+                    (click)="deleteSubject(subject)">Delete</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <p>last message : écrit en dur dans subjectComponent.html !</p>
     </div>
     <div class="col-2">
         <div class="row">
