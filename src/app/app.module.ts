@@ -52,6 +52,7 @@ import { FavoriteAddComponent } from './components/elements/favorite-add/favorit
 import { WidgetWeatherComponent } from './components/elements/widget-weather/widget-weather.component';
 import { WidgetPolluantComponent } from './components/elements/widget-polluant/widget-polluant.component';
 import {NgToggleModule} from '@nth-cloud/ng-toggle';
+import { WidgetLoginRequiredComponent } from './components/elements/widget-login-required/widget-login-required.component';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -92,6 +93,7 @@ registerLocaleData(localeFr, 'fr');
     FavoriteAddComponent,
     WidgetWeatherComponent,
     WidgetPolluantComponent,
+    WidgetLoginRequiredComponent,
   ],
   imports: [
     CommonModule,

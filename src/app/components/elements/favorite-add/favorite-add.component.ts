@@ -31,6 +31,7 @@ export class FavoriteAddComponent implements OnInit {
   showPolluants: boolean = true;
   connectedMember: Member;
 
+  errors: string[] = [];
   constructor(private location: Location, private citySrv: CityService, private favoriteSrv: FavoriteService, private loginSrv: LoginService) { }
 
   ngOnInit(): void {
@@ -55,11 +56,17 @@ export class FavoriteAddComponent implements OnInit {
 
 
   checkCity() {
-    this.city = this.cities.find(city => city.cityName === this.citySearched);
+    this.errors = [];
+    if (this.cities.find(city => city.cityName === this.citySearched) != null) {
+      if (this.connectedMember.favorites.find(favorite => favorite.cityDtoResponse.cityName === this.citySearched) == null) {
+        this.errors = [];
+        this.city = this.cities.find(city => city.cityName === this.citySearched);
+      } else this.errors.push(`city "${this.citySearched}" is already in your favorite`);
+    } else this.errors.push(`city "${this.citySearched}" not found (check out the syntaxe)`);
   }
 
   validate() {
-    
+
     if (this.connectedMember.favorites.find(favorite => favorite.cityDtoResponse.cityName === this.citySearched) == null) {
       var favorite = new Favorite({});
       favorite.showWeather = this.showWeather;
@@ -84,7 +91,7 @@ export class FavoriteAddComponent implements OnInit {
       );
       console.log(favorite);
     } else {
-      console.log("city is already in favorites list");
+      this.errors.push(`"${this.city.cityName}" is already in favorites list`)
 
     }
 
@@ -98,22 +105,38 @@ export class FavoriteAddComponent implements OnInit {
       this.showHumidity = false;
       this.showPressure = false;
       this.showWind = false;
+    } else {
+      this.showMinMax = true;
+      this.showHumidity = true;
+      this.showPressure = true;
+      this.showWind = true;
     }
     if (!this.showPolluants) {
       this.showPM25 = false;
       this.showNO2 = false;
       this.showPM10 = false;
       this.showO3 = false;
+    } else {
+      this.showPM25 = true;
+      this.showNO2 = true;
+      this.showPM10 = true;
+      this.showO3 = true;
     }
   }
 
   weatherSwitchOn() {
     this.showWeather = true;
+    if (!this.showMinMax && !this.showHumidity && !this.showPressure && !this.showWind) {
+      this.showWeather = false;
+    }
   }
 
 
   polluantsSwitchOn() {
     this.showPolluants = true;
+    if (!this.showPM25 && !this.showNO2 && !this.showPM10 && !this.showO3) {
+      this.showPolluants = false;
+    }
   }
 
 }

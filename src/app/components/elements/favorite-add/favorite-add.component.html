@@ -1,52 +1,67 @@
 <!-- lignes d'entete -->
 <div class="row mt-3 border-bottom">
-    <div class="col-9">
-        <p>
-            Add a new favorite
-        </p>
+    <div class="col">
+        <p> Add a new favorite</p>
     </div>
 </div>
-
-<div class="row mt-3">
-    <div class="col"></div>
-    <div class="input-group mb-2">
-        <div class="input-group-prepend">
-            <div class="input-group-text">Search</div>
-        </div>
-        <input [(ngModel)] ="citySearched" list="cityList" id="cityName" class="form-control" type="text" placeholder="please enter your city name"  (keyup.enter)="checkCity()">
+<div *ngIf='errors.length>0' class="row">
+    <div class="col">
+        <p class="errors p-3 rounded shadow mt-1" *ngFor="let err of errors">{{err}}</p>
     </div>
-    
+</div>
+<div class="row mt-3">
+    <div class="col">
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Search</div>
+            </div>
+            <input [(ngModel)]="citySearched" list="cityList" id="cityName" class="form-control" type="text"
+                placeholder="please enter your city name" (keyup.enter)="checkCity()">
+        </div>
+    </div>
+    <div>
+        <button class="mx-3 btn btn-secondary" (click)="checkCity()">search</button>
+
+    </div>
     <datalist id="cityList">
         <option *ngFor="let city of cities">{{city.cityName}}</option>
     </datalist>
-    
 
-  
+
+
 </div>
 <div class="row" *ngIf="city">
     <div class="col-sm-12 col-md-6">
         <p>Weather informations
             <ng-toggle [(ngModel)]="showWeather" (click)="switchOff()"></ng-toggle>
         </p>
-          <table>
-              <tr>
-                  <td>min max temp</td>
-                  <td><ng-toggle (click)="weatherSwitchOn()" [(ngModel)]="showMinMax"></ng-toggle></td>
-              </tr>
-              <tr>
+        <table>
+            <tr>
+                <td>min max temp</td>
+                <td>
+                    <ng-toggle (click)="weatherSwitchOn()" [(ngModel)]="showMinMax"></ng-toggle>
+                </td>
+            </tr>
+            <tr>
                 <td>Humidity</td>
-                <td><ng-toggle (click)="weatherSwitchOn()" [(ngModel)]="showHumidity"></ng-toggle></td>
+                <td>
+                    <ng-toggle (click)="weatherSwitchOn()" [(ngModel)]="showHumidity"></ng-toggle>
+                </td>
             </tr>
             <tr>
                 <td>Wind</td>
-                <td><ng-toggle (click)="weatherSwitchOn()" [(ngModel)]="showWind"></ng-toggle></td>
+                <td>
+                    <ng-toggle (click)="weatherSwitchOn()" [(ngModel)]="showWind"></ng-toggle>
+                </td>
             </tr>
             <tr>
                 <td>Pressure</td>
-                <td><ng-toggle (click)="weatherSwitchOn()" [(ngModel)]="showPressure"></ng-toggle></td>
+                <td>
+                    <ng-toggle (click)="weatherSwitchOn()" [(ngModel)]="showPressure"></ng-toggle>
+                </td>
             </tr>
-                      
-          </table>
+
+        </table>
     </div>
     <div class="col-sm-12 col-md-6">
         <p>Polluant(s) informations
@@ -55,21 +70,29 @@
         <table>
             <tr>
                 <td>NO2</td>
-                <td><ng-toggle (click)="polluantsSwitchOn()"  [(ngModel)]="showNO2"></ng-toggle></td>
+                <td>
+                    <ng-toggle (click)="polluantsSwitchOn()" [(ngModel)]="showNO2"></ng-toggle>
+                </td>
             </tr>
             <tr>
-              <td>O3</td>
-              <td><ng-toggle (click)="polluantsSwitchOn()" [(ngModel)]="showO3"></ng-toggle></td>
-          </tr>
-          <tr>
-              <td>PM10</td>
-              <td><ng-toggle (click)="polluantsSwitchOn()" [(ngModel)]="showPM10"></ng-toggle></td>
-          </tr>
-          <tr>
-              <td>PM25</td>
-              <td><ng-toggle (click)="polluantsSwitchOn()" [(ngModel)]="showPM25"></ng-toggle></td>
-          </tr>
-                    
+                <td>O3</td>
+                <td>
+                    <ng-toggle (click)="polluantsSwitchOn()" [(ngModel)]="showO3"></ng-toggle>
+                </td>
+            </tr>
+            <tr>
+                <td>PM10</td>
+                <td>
+                    <ng-toggle (click)="polluantsSwitchOn()" [(ngModel)]="showPM10"></ng-toggle>
+                </td>
+            </tr>
+            <tr>
+                <td>PM25</td>
+                <td>
+                    <ng-toggle (click)="polluantsSwitchOn()" [(ngModel)]="showPM25"></ng-toggle>
+                </td>
+            </tr>
+
         </table>
     </div>
 </div>

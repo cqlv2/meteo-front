@@ -46,6 +46,9 @@ return this.http.post(`${environment.baseUrl}api/login`, connect);
    }
 
 
+   logout(){
+    return this.http.get(`${environment.baseUrl}logout`);
+   }
 
 
 

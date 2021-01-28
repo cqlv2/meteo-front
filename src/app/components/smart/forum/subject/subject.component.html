@@ -1,14 +1,15 @@
 <div class="row" *ngIf="subject">
     <div class="col">
         <h3>{{subject.label}}</h3>
-        <p>AUTOR  - {{subject.dateAdd|date}}</p>
-        <app-module-answer *ngFor= "let answer of subject.answers" [connectedMember]="connectedMember" [answer]=answer [subject]="subject"></app-module-answer>
+        <p>AUTOR - {{subject.dateAdd|date}}</p>
+        <app-module-answer *ngFor="let answer of subject.answers" [connectedMember]="connectedMember" [answer]=answer
+            [subject]="subject"></app-module-answer>
 
-        <app-module-answer-form *ngIf="connectedMember" [connectedMember]="connectedMember" [subject]="subject"></app-module-answer-form>
-    <div *ngIf="!connectedMember"><p>Login to answer</p></div>
-    </div> 
+        <app-module-answer-form *ngIf="connectedMember" [connectedMember]="connectedMember" [subject]="subject">
+        </app-module-answer-form>
+        <div *ngIf="!connectedMember">
+            <app-widget-login-required></app-widget-login-required>
+
+        </div>
+    </div>
 </div>
-
-
-
-
