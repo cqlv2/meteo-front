@@ -3,7 +3,7 @@
         <div class="col-2 border-right">
 
             <!-- bouton suppr edit si admin ou a moi -->
-            <div *ngIf="connectedMember && (connectedMember.id==subject.memberId || connectedMember.role.label == 'ADMIN')"
+            <div *ngIf="connectedMember && (connectedMember.id==answer.memberId || connectedMember.role.label == 'ADMIN')"
                 style="float: right;">
                 <i class="fas fa-pencil-alt ml-2" style="font-size: 1.3em; color: #e6c60e" (click)="activeForm()"></i>
                 <i class="fas fa-trash ml-2" style="font-size: 1.3em; color:#f8643f" (click)="deleteAnswer(topic)"></i>
@@ -31,9 +31,6 @@
                 <ngb-accordion #acc="ngbAccordion">
                     <ngb-panel title="{{answer.comments.length}} comments">
                         <ng-template ngbPanelContent>
-
-
-                            <p *ngIf="!connectedMember">logIn for comment</p>
                             <!-- boucle sur le module commentaire -->
                             <app-module-comment *ngFor="let comment of answer.comments" [comment]=comment>
                             </app-module-comment>

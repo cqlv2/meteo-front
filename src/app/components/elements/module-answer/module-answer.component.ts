@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Answer } from 'src/app/models/answer';
 import { Member } from 'src/app/models/member';
 import { Subject } from 'src/app/models/subject';
@@ -17,7 +18,7 @@ export class ModuleAnswerComponent implements OnInit {
   newContain:string;
   
   
-  constructor(private answerSvr:AnswerService) { }
+  constructor(private answerSvr:AnswerService, private router :Router) { }
 
   ngOnInit(): void {
   }
@@ -39,7 +40,7 @@ export class ModuleAnswerComponent implements OnInit {
   }
   deleteAnswer() {
     this.answerSvr.deleteAnswer(this.answer.id).subscribe(
-      ()=>console.log("je sais pas"),
+      ()=>this.subject.answers.splice(this.subject.answers.indexOf(this.answer),1), 
       err=>console.log(err)
     );
   }
