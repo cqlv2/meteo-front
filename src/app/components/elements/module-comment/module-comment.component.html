@@ -3,14 +3,32 @@
         <div class="col">
             <p style="font-size: 0.8em; color:#444; font-style: italic;">
                 <span style="font-weight: bold;">{{comment.memberLastName}} {{comment.memberFirstName}}</span>
-                has commented this message at {{comment.dateAdd|date:medium}}:
+                has commented this message at {{comment.dateAdd|date:'medium'}}:
             </p>
+            <div *ngIf="connectedMember && (connectedMember.id==comment.memberId || connectedMember.role.label == 'ADMIN')"
+                style="float: right;">
+                <i class="fas fa-pencil-alt ml-2" style="font-size: 1.3em; color: #e6c60e" (click)="activeForm()"></i>
+                <i class="fas fa-trash ml-2" style="font-size: 1.3em; color:#f8643f" (click)="deleteComment()"></i>
+            </div>
 
         </div>
     </div>
     <div class="row">
         <div class="offset-1 col-11">
-            <p style="font-size: 0.8em; color:#444; font-style: italic;" [innerHTML]=comment.contain|nl2br></p>
+            <p *ngIf="!editActive" style="font-size: 0.8em; color:#444; font-style: italic;"
+                [innerHTML]=comment.contain|nl2br></p>
+
+
+            <div *ngIf="editActive" class="row">
+                <div class="col-sm-12 col-md-10">
+                    <textarea [(ngModel)]="newContain" style="width: 90%; resize: none;" rows="2"
+                        class="shadow ml-3"></textarea>
+                </div>
+                <div class="col-sm-12 col-md-2">
+                    <button class="btn btn-secondary" (click)="editComment()">Send</button>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

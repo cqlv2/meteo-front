@@ -20,10 +20,15 @@
                     <!-- affichage -->
                     <p *ngIf="!editAnswer" [innerHTML]=answer.contain|nl2br></p>
                     <!-- edition -->
-                    <p *ngIf="editAnswer">
-                        <textarea [(ngModel)]="newContain" cols="30" rows="10"></textarea>
-                        <button (click)="editContain()">edit</button>
-                    </p>
+                    <div *ngIf="editAnswer" class="row">
+                        <div class="col-sm-12 col-md-10">
+                            <textarea [(ngModel)]="newContain" style="width: 90%; resize: none;" rows="10" class="shadow ml-3"></textarea>
+                        </div>
+                        <div class="col-sm-12 col-md-2">
+                            <button class="btn btn-secondary" (click)="editContain()">edit</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="row"></div>
@@ -32,7 +37,8 @@
                     <ngb-panel title="{{answer.comments.length}} comments">
                         <ng-template ngbPanelContent>
                             <!-- boucle sur le module commentaire -->
-                            <app-module-comment *ngFor="let comment of answer.comments" [comment]=comment>
+                            <app-module-comment *ngFor="let comment of answer.comments" [comment]="comment"
+                                [answer]="answer" [connectedMember]="connectedMember">
                             </app-module-comment>
                             <!-- liste des coms -->
                             <p *ngIf="answer.comments.length==0 && connectedMember">be the first to comment</p>

@@ -13,7 +13,15 @@ export class CommentService {
 
 
   createComment(comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(`${environment.baseUrl}forum/comment`, comment, { withCredentials: true })
+    return this.http.post<Comment>(`${environment.baseUrl}forum/comment`, comment, { withCredentials: true });
+  }
+
+  editContain(id: number, contain: string): Observable<Comment>{
+    return this.http.put<Comment>(`${environment.baseUrl}forum/comment/edit/${id}`, contain, { withCredentials: true });
+  }
+
+  deleteComment(id: number){
+    return this.http.delete(`${environment.baseUrl}forum/comment/${id}`,{ withCredentials: true, responseType: 'text'});
   }
 
 }
