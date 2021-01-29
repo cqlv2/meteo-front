@@ -15,16 +15,15 @@
            
             </ng-template>
         </ngb-panel>
-    
+    <!-- affichage des stats -->
         <ngb-panel title="Weather archives">
             <ng-template ngbPanelContent>
-                <app-widget-weather-stat></app-widget-weather-stat>
+                <app-widget-weather-stat [maptempByMonth]="maptempByMonth"></app-widget-weather-stat>
             </ng-template>
         </ngb-panel>
     
         <ngb-panel title="Air quality informations">
             <ng-template ngbPanelContent>
-                <!-- <app-polluant-widget [polluant]="city.polluants[city.polluants.length -1]"></app-polluant-widget> -->
                 <app-widget-polluant [polluant]="city.polluants[city.polluants.length -1]"></app-widget-polluant>
             </ng-template>
         </ngb-panel>
