@@ -8,6 +8,10 @@ export class Comment{
     liked?: number;
     originId?: number;
     comments?: Comment[];
+    memberId?: number;
+    memberLastName?:string;
+    memberFirstName?:string;
+
 
     constructor(params:any) {
         Object.assign(this, params);

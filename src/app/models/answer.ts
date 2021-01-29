@@ -9,6 +9,9 @@ export class Answer{
     comments?: Comment[];
     subjectId?: number;
     memberId?: number;
+    memberLastName?:string;
+    memberFirstName?:string;
+
 
 
     constructor(params:any) {

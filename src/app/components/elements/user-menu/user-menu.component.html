@@ -3,5 +3,5 @@
     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
       <a routerLink="/profil"><button ngbDropdownItem>Profil</button></a>
       <a routerLink="/favorite"><button ngbDropdownItem>Favorite</button></a>
-      <a routerLink="/logout"><button ngbDropdownItem>Logout</button></a>
+      <button (click)="logout()"ngbDropdownItem>Logout</button>
     </div>

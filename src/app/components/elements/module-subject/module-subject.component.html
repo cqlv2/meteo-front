@@ -1,4 +1,4 @@
-<div class="row mt-1 shadow p-1 bg-white rounded">
+<div *ngIf="subject" class="row mt-1 shadow p-1 bg-white rounded">
     <div class="col-5">
         <div class="row">
             <div class="col">
@@ -7,27 +7,16 @@
         </div>
         <div class="row">
             <div class="col">
-                <h5>AUTEUR</h5>
+                <h5>{{subject.memberLastName}} {{subject.memberFirstName}}</h5>
             </div>
         </div>
     </div>
-    <div class="col-2">
-        <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-warning mt-3" *ngIf="connectedMember" (click)="editSubject()">Edit</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-danger mt-3" *ngIf="connectedMember"
-                    (click)="deleteSubject(subject)">Delete</button>
-            </div>
-        </div>
+    <div class="col-4">
+        <p *ngIf="subject.answers.length > 0">last message : {{subject.answers[subject.answers.length -1].contain| slice:0:70}}
+            <span *ngIf="subject.answers[subject.answers.length -1].contain.length>70">...</span>
+        </p>
     </div>
     <div class="col-3">
-        <p>last message : écrit en dur dans subjectComponent.html !</p>
-    </div>
-    <div class="col-2">
         <div class="row">
             <div class="col">
                 <p>

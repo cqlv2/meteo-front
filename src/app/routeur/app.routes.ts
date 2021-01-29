@@ -6,7 +6,6 @@ import { LoginComponent } from '../components/smart/login/login.component'
 import { RegisterComponent } from '../components/smart/register/register.component'
 import { ProfilComponent } from '../components/smart/profil/profil.component'
 import { GestionFavoriteComponent } from '../components/smart/gestion-favorite/gestion-favorite.component'
-import { LogoutComponent } from '../components/smart/logout/logout.component'
 import { CguComponent } from '../components/smart/register/cgu/cgu.component';
 import { FormComponent } from '../components/smart/register/form/form.component';
 import { StateComponent } from '../components/smart/register/state/state.component';
@@ -72,10 +71,7 @@ export const ROUTES: Routes = [
     {
         path: 'favorite', component: GestionFavoriteComponent,
     },  
-    // logout
-    {
-        path: 'logout', component: LogoutComponent,
-    },
+    
     // error500
     {
         path: 'err500', component: ServerComponent,

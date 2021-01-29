@@ -4,8 +4,12 @@ export class Topic{
     id?:number;
     dateAdd?:Date;
     label:string;
-    memberId?: number;
     subjects:Subject[];
+    
+    memberId?: number;
+    memberLastName?:string;
+    memberFirstName?:string;
+
 
     constructor(params:any) {
         Object.assign(this, params);

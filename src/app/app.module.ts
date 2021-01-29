@@ -18,7 +18,6 @@ import { ForumComponent } from './components/smart/forum/forum.component';
 import { LoginComponent } from './components/smart/login/login.component';
 import { RegisterComponent } from './components/smart/register/register.component';
 import { ProfilComponent } from './components/smart/profil/profil.component';
-import { LogoutComponent } from './components/smart/logout/logout.component';
 
 import { HeaderComponent } from './components/elements/header/header.component';
 import { UserMenuComponent } from './components/elements/user-menu/user-menu.component';
@@ -70,7 +69,6 @@ registerLocaleData(localeFr, 'fr');
     RegisterComponent,
     UserMenuComponent,
     ProfilComponent,
-    LogoutComponent,
     GestionFavoriteComponent,
     CguComponent,
     FormComponent,

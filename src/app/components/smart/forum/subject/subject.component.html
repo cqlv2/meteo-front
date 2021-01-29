@@ -1,7 +1,31 @@
 <div class="row" *ngIf="subject">
     <div class="col">
-        <h3>{{subject.label}}</h3>
-        <p>AUTOR - {{subject.dateAdd|date}}</p>
+        <!-- si affichage -->
+        <h3 *ngIf="!editSubLabel">{{subject.label}}</h3>
+        <!-- si edition -->
+        <div *ngIf="editSubLabel" class="col-6">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">New label</div>
+                </div>
+                <input id="nom" [(ngModel)]="newSubLabel" class="form-control" type="text"
+                    placeholder="please enter the new label">
+                <button (click)="editLabel()" type="button" class="btn btn-secondary ml-3">Save</button>
+                <button (click)="cancelEditSubLabel()" type="button" class="btn btn-secondary ml-3">Cancel</button>
+            </div>
+        </div>
+        <p>
+            {{subject.memberFirstName}} {{subject.memberLastName}} - {{subject.dateAdd|date}}
+            <span  *ngIf="connectedMember && (connectedMember.id==subject.memberId || connectedMember.role.label == 'ADMIN')" class="text-right">
+                <i class="fas fa-pencil-alt ml-2" style="font-size: 1.3em; color: #e6c60e" (click)="activeForm()"></i>
+                <i class="fas fa-trash ml-2" style="font-size: 1.3em; color:#f8643f" (click)="deleteSubject(topic)"></i>
+            </span>
+        </p>
+
+
+
+
+
         <app-module-answer *ngFor="let answer of subject.answers" [connectedMember]="connectedMember" [answer]=answer
             [subject]="subject"></app-module-answer>
 

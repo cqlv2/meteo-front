@@ -1,36 +1,50 @@
 <div class="shadow p-3 mb-5 bg-white rounded container">
     <div class="row">
         <div class="col-2 border-right">
-            <p>INFO AUTEUR</p>
+
+            <!-- bouton suppr edit si admin ou a moi -->
+            <div *ngIf="connectedMember && (connectedMember.id==subject.memberId || connectedMember.role.label == 'ADMIN')"
+                style="float: right;">
+                <i class="fas fa-pencil-alt ml-2" style="font-size: 1.3em; color: #e6c60e" (click)="activeForm()"></i>
+                <i class="fas fa-trash ml-2" style="font-size: 1.3em; color:#f8643f" (click)="deleteAnswer(topic)"></i>
+            </div>
+            <!-- info answer -->
+            <p>{{answer.memberLastName}} {{answer.memberFirstName}}</p>
             <p>{{answer.dateAdd|date:'medium'}}</p>
             <p>{{answer.liked}} like</p>
         </div>
+        <!-- answer contain -->
         <div class="col-10">
             <div class="row">
                 <div class="col">
-                    <p [innerHTML]=answer.contain|nl2br></p>
+                    <!-- affichage -->
+                    <p *ngIf="!editAnswer" [innerHTML]=answer.contain|nl2br></p>
+                    <!-- edition -->
+                    <p *ngIf="editAnswer">
+                        <textarea [(ngModel)]="newContain" cols="30" rows="10"></textarea>
+                        <button (click)="editContain()">edit</button>
+                    </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <ngb-accordion #acc="ngbAccordion">
-                        <ngb-panel title="{{answer.comments.length}} comments">
-                            <ng-template ngbPanelContent>
+            <div class="row"></div>
+            <div class="col">
+                <ngb-accordion #acc="ngbAccordion">
+                    <ngb-panel title="{{answer.comments.length}} comments">
+                        <ng-template ngbPanelContent>
 
 
-                                <p *ngIf="!connectedMember">logIn for comment</p>
-                                <!-- boucle sur le module commentaire -->
-                                <app-module-comment *ngFor="let comment of answer.comments" [comment]=comment>
-                                </app-module-comment>
-                                <!-- liste des coms -->
-                                <p *ngIf="answer.comments.length==0 && connectedMember">be the first to comment</p>
-                                <app-comment-form-module *ngIf="connectedMember" [connectedMember]="connectedMember"
-                                    [message]="answer"></app-comment-form-module>
-                            </ng-template>
-                        </ngb-panel>
+                            <p *ngIf="!connectedMember">logIn for comment</p>
+                            <!-- boucle sur le module commentaire -->
+                            <app-module-comment *ngFor="let comment of answer.comments" [comment]=comment>
+                            </app-module-comment>
+                            <!-- liste des coms -->
+                            <p *ngIf="answer.comments.length==0 && connectedMember">be the first to comment</p>
+                            <app-comment-form-module *ngIf="connectedMember" [connectedMember]="connectedMember"
+                                [message]="answer"></app-comment-form-module>
+                        </ng-template>
+                    </ngb-panel>
 
-                    </ngb-accordion>
-                </div>
+                </ngb-accordion>
             </div>
         </div>
     </div>
