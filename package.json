@@ -28,8 +28,10 @@
     "@types/leaflet.markercluster": "^1.4.3",
     "bootstrap": "^4.5.3",
     "bootstrap4-toggle": "^3.6.1",
+    "chart.js": "^2.9.4",
     "leaflet": "^1.7.1",
     "leaflet.markercluster": "^1.4.1",
+    "ng2-charts": "^2.4.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

@@ -53,6 +53,8 @@ import { WidgetPolluantComponent } from './components/elements/widget-polluant/w
 import {NgToggleModule} from '@nth-cloud/ng-toggle';
 import { WidgetLoginRequiredComponent } from './components/elements/widget-login-required/widget-login-required.component';
 import { EditTopicComponent } from './components/modals/edit-topic/edit-topic.component';
+import { ChartsModule } from 'ng2-charts';
+import { WidgetWeatherStatComponent } from './components/elements/widget-weather-stat/widget-weather-stat.component';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -94,6 +96,7 @@ registerLocaleData(localeFr, 'fr');
     WidgetPolluantComponent,
     WidgetLoginRequiredComponent,
     EditTopicComponent,
+    WidgetWeatherStatComponent,
   ],
   imports: [
     CommonModule,
@@ -104,7 +107,8 @@ registerLocaleData(localeFr, 'fr');
     RouterModule.forRoot(ROUTES),
     [Nl2BrPipeModule],
     LeafletMarkerClusterModule,
-    NgToggleModule
+    NgToggleModule,
+    ChartsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "fr-FR" },
