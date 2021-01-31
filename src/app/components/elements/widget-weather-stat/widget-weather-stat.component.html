@@ -1,14 +1,26 @@
-
-<div>
-    <canvas baseChart width="400" height="400"
-    [datasets]="lineChartData"
-    [labels]="lineChartLabels"
-    [options]="lineChartOptions"
-    [colors]="lineChartColors"
-    [legend]="lineChartLegend"
-    [chartType]="lineChartType"
-    
-   ></canvas>
+<div *ngIf="city">
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>Temperature</a>
+      <ng-template ngbNavContent>
+        <app-charts [city]="city" chartWeather="temperature"></app-charts>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>Humidity</a>
+      <ng-template ngbNavContent>
+        <app-charts [city]="city" chartWeather="humidity"></app-charts>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <a ngbNavLink>Pressure</a>
+      <ng-template ngbNavContent>
+        <app-charts [city]="city" chartWeather="pressure"></app-charts>
+      </ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
 </div>
-   
-  
+<div *ngIf="!city">
+  pas d'city
+</div>

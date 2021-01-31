@@ -1,0 +1,8 @@
+.loading {
+    height: 600px;
+    width: 100%
+}
+.loading img{
+    width: 60%;
+    margin: auto;
+}

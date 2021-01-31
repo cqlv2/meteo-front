@@ -12,9 +12,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class WeatherComponent implements OnInit {
 
   cities: City[];
-  loadingImg:string = "https://i.pinimg.com/originals/9b/4d/3f/9b4d3f25ca2e77f9ecba5d959463756b.gif";
-
-  constructor(private loginSrv: LoginService, private cityService: CityService) { }
+  constructor(private loginSrv: LoginService, private cityService: CityService) {}
 
   ngOnInit(): void {
     this.loginSrv.isAuth().subscribe(
@@ -22,10 +20,15 @@ export class WeatherComponent implements OnInit {
       err => this.loginSrv.sendToMemberSub(null)
     )
     this.cityService.getCities().subscribe(
-      data => this.cities = data,
-      err => console.log(err),
-      ()=>console.log("done!")
-      
-      );
+      data => {
+        this.cityService.sendToCityListSubject(data);
+
+        this.cityService.getFromCityListSubject().subscribe(
+          a=>console.log(a)
+        )
+        this.cities = data;
+      },
+      err => console.log(err),      
+    );
   }
 }

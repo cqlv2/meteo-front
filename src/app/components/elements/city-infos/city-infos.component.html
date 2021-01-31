@@ -1,38 +1,46 @@
 <div *ngIf="city">
-    <ngb-accordion #acc="ngbAccordion" class="mt-3"> 
+    <ngb-accordion [closeOthers]="true" class="mt-3">
+        <!-- affichage des infos generales -->
         <ngb-panel title="City informations">
             <ng-template ngbPanelContent>
                 <app-infos-city-widget [city]="city"></app-infos-city-widget>
             </ng-template>
         </ngb-panel>
-    
+        <!-- affichage de la meteo -->
         <ngb-panel title="Weather informations">
             <ng-template ngbPanelContent>
                 <app-widget-weather [weather]="city.weathers[city.weathers.length -1]"></app-widget-weather>
-
-           
-           
-           
             </ng-template>
         </ngb-panel>
-    <!-- affichage des stats -->
+
+
+
+
+
+        
+        <!-- affichage des stats meteos-->
         <ngb-panel title="Weather archives">
             <ng-template ngbPanelContent>
-                <app-widget-weather-stat [maptempByMonth]="maptempByMonth"></app-widget-weather-stat>
+                <app-widget-weather-stat [city]="city"></app-widget-weather-stat>
             </ng-template>
         </ngb-panel>
     
+    
+    
+    
+    
+    
+        <!-- affichage de la qualité dde l'air -->
         <ngb-panel title="Air quality informations">
             <ng-template ngbPanelContent>
                 <app-widget-polluant [polluant]="city.polluants[city.polluants.length -1]"></app-widget-polluant>
             </ng-template>
         </ngb-panel>
-    
+        <!-- affichage des stats de qualite de l'air -->
         <ngb-panel title="Air quality archives">
             <ng-template ngbPanelContent>
-                
             </ng-template>
         </ngb-panel>
-      
+
     </ngb-accordion>
 </div>

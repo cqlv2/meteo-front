@@ -9,18 +9,25 @@ import { CityService } from 'src/app/services/city.service';
 })
 export class CitySearchComponent implements OnInit {
 
-  @Input()
-  cities: City[];
-
-  citySearched: string = null;
+  error: string;
+  @Input()cities: City[];
+  citySearched: string;
 
   constructor(private citySrv: CityService) { }
 
   ngOnInit(): void {
-  }
+this.citySrv.getFromCitySubject().subscribe(
+  data=>this.citySearched=data.cityName,
+  err=>console.log(err)  
+);
 
-  checkCity(){
-    this.citySrv.sendToCitySubject(this.cities.find(city => city.cityName === this.citySearched));
-    console.log("ville recherchée : " + this.citySearched);
+   }
+
+  checkCity() {
+    if (this.cities.find(city => city.cityName === this.citySearched)) {
+      this.error =null;
+      this.citySrv.sendToCitySubject(this.cities.find(city => city.cityName === this.citySearched));
+    } else
+      this.error = "city not found !"
   }
 }
