@@ -11,8 +11,13 @@ import { CityService } from 'src/app/services/city.service';
 })
 export class ChartsComponent implements OnInit {
 
+  @Input() year: number
+  @Input() month: number
+  @Input() date: string;
+  day:number;
   @Input() city: City;
   @Input() chartWeather: string = "temperature";
+
   label: (string | number)[] = [];
   temp: (string | number)[] = [];
   tempMax: (string | number)[] = [];
@@ -27,9 +32,17 @@ export class ChartsComponent implements OnInit {
 
   constructor(private citySvr: CityService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+   }
 
   ngOnChanges(): void {
+    
+    if(this.date){
+      let d=new Date(this.date);
+      this.year=d.getFullYear();
+      this.month=d.getMonth();
+      this.day=d.getDate();
+    }
     //reinitialisation des variables
     this.lineChartData = [];
     this.lineChartLabels = null;
@@ -43,8 +56,11 @@ export class ChartsComponent implements OnInit {
 
     console.log(this.lineChartData.length);
 
+console.log("year : "+this.year+" mois : "+this.month+" jour : "+this.day);
 
-    this.citySvr.parseDate(this.city, 2021, 0).forEach(element => {
+
+
+    this.citySvr.parseDate(this.city, this.year, this.month, this.day).forEach(element => {
       this.label.push(element[0]);
       this.temp.push(element[1]);
       this.tempMax.push(element[2]);

@@ -1,26 +1,73 @@
-<div *ngIf="city">
-  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-    <li [ngbNavItem]="1">
-      <a ngbNavLink>Temperature</a>
-      <ng-template ngbNavContent>
-        <app-charts [city]="city" chartWeather="temperature"></app-charts>
-      </ng-template>
-    </li>
-    <li [ngbNavItem]="2">
-      <a ngbNavLink>Humidity</a>
-      <ng-template ngbNavContent>
-        <app-charts [city]="city" chartWeather="humidity"></app-charts>
-      </ng-template>
-    </li>
-    <li [ngbNavItem]="3">
-      <a ngbNavLink>Pressure</a>
-      <ng-template ngbNavContent>
-        <app-charts [city]="city" chartWeather="pressure"></app-charts>
-      </ng-template>
-    </li>
-  </ul>
-  <div [ngbNavOutlet]="nav" class="mt-2"></div>
-</div>
-<div *ngIf="!city">
-  pas d'city
-</div>
+<div class="row" *ngIf="city">
+
+
+  <div class="col-12 border-bottom">
+    <div class="row">
+      <div class="col">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" [(ngModel)]="view" id="inlineRadio1" value="year">
+          <label class="form-check-label" for="inlineRadio1">for a Years</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" [(ngModel)]="view" id="inlineRadio2" value="month">
+          <label class="form-check-label" for="inlineRadio2">for a month</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" [(ngModel)]="view" id="inlineRadio3" value="day">
+          <label class="form-check-label" for="inlineRadio3">for a day</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <!-- select year -->
+        <select *ngIf="view=='month' || view=='year'" [(ngModel)]="year" class="m-2 form-select"
+          id="inputGroupSelect01">
+          <option value="2021">2021</option>
+        </select>
+        <!-- select month -->
+        <select *ngIf="view=='month'" [(ngModel)]="month" class="m-2 form-select" id="inputGroupSelect01">
+          <option *ngFor="let val of tabMonth" [value]=val[1]>{{val[0]}}</option>
+        </select>
+        <!-- select day -->
+        <input *ngIf="view=='day'" [(ngModel)]="date" type="date">
+
+
+      </div>
+    </div>
+
+
+
+    <div class="col-12 mt-2">
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>Temperature</a>
+          <ng-template ngbNavContent>
+
+            <app-charts *ngIf="view=='year'" [city]="city" [year]="year" chartWeather="temperature"></app-charts>
+            <app-charts *ngIf="view=='month'" [city]="city" [year]="year" [month]="month" chartWeather="temperature"></app-charts>
+            <app-charts *ngIf="view=='day'" [city]="city" [date]="date" chartWeather="temperature"></app-charts>
+
+
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Humidity</a>
+          <ng-template ngbNavContent>
+            <app-charts [city]="city" chartWeather="humidity"></app-charts>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+          <a ngbNavLink>Pressure</a>
+          <ng-template ngbNavContent>
+            <app-charts [city]="city" chartWeather="pressure"></app-charts>
+          </ng-template>
+        </li>
+      </ul>
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+  </div>
+  <div *ngIf="!city">
+    pas d'city
+  </div>
