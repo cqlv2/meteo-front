@@ -108,11 +108,6 @@ export class CityService {
     }
   }
 
-
-
-
-
-
   // getter setter subject
   cityListSubject = new Subject<City[]>();
   

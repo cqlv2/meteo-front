@@ -10,7 +10,7 @@ import { Color, Label } from 'ng2-charts';
 export class WidgetChartsComponent implements OnInit {
 
   @Input() label;
-  @Input() charts;
+  @Input() chart;
   //variable a modifier pour editer les graphics
   public lineChartData: ChartDataSets[];
   public lineChartLabels: Label[];
@@ -21,7 +21,7 @@ export class WidgetChartsComponent implements OnInit {
   ngOnInit(): void {
   }
   ngOnChanges(): void {
-    this.lineChartData=this.charts;
+    this.lineChartData=this.chart;
     this.lineChartLabels=this.label;
   }
   // config des graphics

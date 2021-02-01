@@ -22,9 +22,13 @@ export class WidgetPolluantStatComponent implements OnInit {
 
   constructor(private polluantSvr: PollutionService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.genCharts();
+    console.log(this.label);
+    console.log(this.chart);
+  }
 
-  genCharts() {
+  genCharts() {    
     // reinnitialisations des variables
     this.label = new Array();
     this.chart = null;
@@ -54,6 +58,6 @@ export class WidgetPolluantStatComponent implements OnInit {
       this.chart.push({ data: no2, label: 'no2' });
       this.chart.push({ data: pm10, label: 'pm10' });
       this.chart.push({ data: pm25, label: 'pm25' });
-    }
+    }    
   }
 }
