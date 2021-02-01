@@ -10,12 +10,12 @@ export class WidgetWeatherStatComponent implements OnInit {
 
 tabMonth=[
   ["January",0],
-  ["Fabrary",1],
+  ["February",1],
   ["March",2],
   ["April",3],
-  ["Mai",4],
+  ["May",4],
   ["June",5],
-  ["Jully",6],
+  ["July",6],
   ["August",7],
   ["September",8],
   ["October",9],
