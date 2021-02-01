@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
   register() {
     console.log(this.MemberReq);
     if (!this.MemberReq.roleId) {
-      this.MemberReq.roleId = 1;
+      this.MemberReq.roleId = 2;
     }
     this.loginServ.register(this.MemberReq).subscribe(
       ok => this.router.navigate(['/register/state']),
