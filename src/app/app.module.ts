@@ -57,6 +57,8 @@ import { ChartsModule } from 'ng2-charts';
 import { WidgetWeatherStatComponent } from './components/elements/widget-weather-stat/widget-weather-stat.component';
 import { ChartsComponent } from './components/elements/charts/charts.component';
 import { LoadingScreenComponent } from './components/elements/loading-screen/loading-screen.component';
+import { WidgetPolluantStatComponent } from './components/elements/widget-polluant-stat/widget-polluant-stat.component';
+import { WidgetChartsComponent } from './components/elements/widget-charts/widget-charts.component';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -101,6 +103,8 @@ registerLocaleData(localeFr, 'fr');
     WidgetWeatherStatComponent,
     ChartsComponent,
     LoadingScreenComponent,
+    WidgetPolluantStatComponent,
+    WidgetChartsComponent,
   ],
   imports: [
     CommonModule,

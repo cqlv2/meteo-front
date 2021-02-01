@@ -75,6 +75,8 @@ export class CityService {
           data.push([i + "/" + month + "/" + year, tempAvg, tmaxAvg, tminAvg, pressureAvg, humidityAvg, windSpeedAvg]);
         }
       }
+      console.log(data);
+      
       return data;
     }
     // si le parametre day est present on veut trier par valeur du jour
@@ -100,6 +102,8 @@ export class CityService {
           data.push([i + "h", tempAvg, tmaxAvg, tminAvg, pressureAvg, humidityAvg, windSpeedAvg]);
         }
       }
+      console.log(data);
+      
       return data;
     }
   }

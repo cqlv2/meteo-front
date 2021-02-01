@@ -1,0 +1,42 @@
+{{month}}
+
+<div class="row" *ngIf="city">
+    <div class="col-12 border-bottom">
+        <!-- choix affichage de la vue -->
+        <div class="row">
+            <div class="col">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" (change)="genCharts()" [(ngModel)]="view" id="inlineRadio1" value="year">
+                    <label class="form-check-label" for="inlineRadio1">for a Years</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" (change)="genCharts()" [(ngModel)]="view" id="inlineRadio2" value="month">
+                    <label class="form-check-label" for="inlineRadio2">for a month</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" (change)="genCharts()" [(ngModel)]="view" id="inlineRadio3" value="day">
+                    <label class="form-check-label" for="inlineRadio3">for a day</label>
+                </div>
+            </div>
+        </div>
+        <!-- option de la vue -->
+        <div class="row">
+            <div class="col">
+                <!-- select year -->
+                <select *ngIf="view=='month' || view=='year'" (change)="genCharts()" [(ngModel)]="year" class="m-2 form-select"
+                    id="inputGroupSelect01">
+                    <option value="2021">2021</option>
+                </select>
+                <!-- select month -->
+                <select *ngIf="view=='month'" (change)="genCharts()" [(ngModel)]="month" class="m-2 form-select" id="inputGroupSelect01">
+                    <option *ngFor="let val of tabMonth" [value]=val[1]>{{val[0]}}</option>
+                </select>
+                <!-- select day -->
+                <input *ngIf="view=='day'" (change)="genCharts()" [(ngModel)]="date" type="date">
+            </div>
+        </div>
+        <!-- affichage du graphic -->
+        <div class="col-12 mt-2">
+            <app-widget-charts [label]="label" [charts]="chart"></app-widget-charts>
+        </div>
+    </div>
