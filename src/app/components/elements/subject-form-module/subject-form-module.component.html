@@ -18,7 +18,7 @@
         </div>
     </fieldset>
     <div>
-        <button (click)="createSubject()" class="mx-3 btn btn-secondary mt-3">Create</button>
+        <button (click)="createSubject()" class="mx-3 btn btn-secondary mt-3" [disabled]="!subjectName || !firstAnswer">Create</button>
         <button (click)="cancelSubject()" class="mx-3 btn btn-secondary mt-3">Cancel</button>
     </div>
 </div>

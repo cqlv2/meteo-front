@@ -54,11 +54,6 @@ export class ChartsComponent implements OnInit {
     this.humidity = [];
     this.wind = [];
 
-    console.log(this.lineChartData.length);
-
-console.log("year : "+this.year+" mois : "+this.month+" jour : "+this.day);
-
-
 
     this.citySvr.parseDate(this.city, this.year, this.month, this.day).forEach(element => {
       this.label.push(element[0]);

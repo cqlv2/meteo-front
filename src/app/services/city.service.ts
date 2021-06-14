@@ -29,7 +29,6 @@ export class CityService {
     let yearArray: Weather[] = city.weathers.filter(data => new Date(data.dateAdd).getFullYear() == year)
     // si le parametre month est null on veut trier par mois
     if (month == null && day == null) {
-      console.log("recherche de la moyenne des mois d'une annee");
 
       //preparation d'un tableau pour le retour des donnee
       let data: (string | number)[][] = [];
@@ -55,7 +54,6 @@ export class CityService {
     }
     // si le parametre day est null on veut trier par moyenne de jour mois
     if (month != null && day == null) {
-      console.log("recherche de la moyenne des jour du mois d'une annee");
       //preparation d'un tableau pour le retour des donnee
       let data: (string | number)[][] = [];
       //recuperation du mois passer en parametre
@@ -75,13 +73,11 @@ export class CityService {
           data.push([i + "/" + month + "/" + year, tempAvg, tmaxAvg, tminAvg, pressureAvg, humidityAvg, windSpeedAvg]);
         }
       }
-      console.log(data);
       
       return data;
     }
     // si le parametre day est present on veut trier par valeur du jour
     if (month != null && day != null) {
-      console.log("recherche des valeurs du jour d'un mois d'une annee");
       //preparation d'un tableau pour le retour des donnee
       let data: (string | number)[][] = [];
       //recuperation du mois passer en parametre
@@ -102,7 +98,6 @@ export class CityService {
           data.push([i + "h", tempAvg, tmaxAvg, tminAvg, pressureAvg, humidityAvg, windSpeedAvg]);
         }
       }
-      console.log(data);
       
       return data;
     }
